@@ -915,11 +915,11 @@
 <table>
 <thead>
 <tr>
-<th>Параметр</th>
-<th>Тип</th>
-<th>Свойства</th>
-<th>Описание</th>
-<th>Пример значения</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Properties</th>
+<th>Description</th>
+<th>Value example</th>
 </tr>
 </thead>
 <tbody>
@@ -941,7 +941,7 @@
 <td>callback</td>
 <td><code>CallbackRunScript</code></td>
 <td>Обязательный</td>
-<td>Callback, который будет вызван после выполнения запроса.</td>
+<td>Callback for the request being executed.</td>
 <td>см.пример ниже</td>
 </tr>
 </tbody>
@@ -950,7 +950,7 @@
 <p class="admonition-title">Примечание</p>
 <p>Объект <code>dataPoolForScript</code> будет сериализован в JSON при помощи парсера Google Gson. Если у вас возникли проблемы при передаче параметров в скрипт - обратитесь к официальной документации <a href="https://github.com/google/gson">https://github.com/google/gson</a></p>
 </div>
-<p><strong>Пример</strong></p>
+<p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="n">Script</span> <span class="n">script</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Script</span><span class="o">();</span>
 <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">dataPool</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
 <span class="n">dataPool</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="err">“</span><span class="n">collname</span><span class="err">”</span><span class="o">,</span><span class="err">”</span><span class="n">items</span><span class="err">”</span><span class="o">);</span>
@@ -978,11 +978,11 @@
 <table>
 <thead>
 <tr>
-<th>Параметр</th>
-<th>Тип</th>
-<th>Свойства</th>
-<th>Описание</th>
-<th>Пример значения</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Properties</th>
+<th>Description</th>
+<th>Value example</th>
 </tr>
 </thead>
 <tbody>
@@ -997,7 +997,7 @@
 <td>callback</td>
 <td><code>CallbackRunScript</code></td>
 <td>Обязательный</td>
-<td>Callback, который будет вызван после выполнения запроса.</td>
+<td>Callback for the request being executed.</td>
 <td>см.пример ниже</td>
 </tr>
 </tbody>
@@ -1006,7 +1006,7 @@
 <p class="admonition-title">Примечание</p>
 <p>Объект <code>dataPoolForScript</code> будет сериализован в JSON при помощи парсера Google Gson. Если у вас возникли проблемы при передаче параметров в скрипт - обратитесь к официальной документации <a href="https://github.com/google/gson">https://github.com/google/gson</a></p>
 </div>
-<p><strong>Пример</strong></p>
+<p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="n">Script</span> <span class="n">script</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Script</span><span class="o">();</span>
 <span class="n">script</span><span class="o">.</span><span class="na">runScript</span><span class="o">(</span><span class="s">&quot;57e1503b48e5f54441189790&quot;</span><span class="o">,</span> <span class="k">new</span> <span class="n">CallbackRunScript</span><span class="o">()</span> <span class="o">{</span>
             <span class="nd">@Override</span>

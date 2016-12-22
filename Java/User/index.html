@@ -934,7 +934,7 @@
 <p><a name="User_new"></a></p>
 <h3 id="new-user">new User()<a class="headerlink" href="#new-user" title="Permanent link">&para;</a></h3>
 <p>Инициализация экземпляра класса User</p>
-<p><strong>Пример</strong> </p>
+<p><strong>Example</strong> </p>
 <div class="codehilite"><pre><span></span><span class="n">User</span> <span class="n">appUser</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">();</span>
 </pre></div>
 
@@ -946,11 +946,11 @@
 <table>
 <thead>
 <tr>
-<th>Параметр</th>
-<th>Тип</th>
-<th>Свойства</th>
-<th>Описание</th>
-<th>Пример значения</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Properties</th>
+<th>Description</th>
+<th>Value example</th>
 </tr>
 </thead>
 <tbody>
@@ -986,12 +986,12 @@
 <td>callback</td>
 <td><code>CallbackRegisterUser</code></td>
 <td>Обязательныйй</td>
-<td>Callback, который будет вызван после выполнения запроса.</td>
+<td>Callback for the request being executed.</td>
 <td>см.пример ниже</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Пример</strong> </p>
+<p><strong>Example</strong> </p>
 <div class="codehilite"><pre><span></span><span class="n">Document</span> <span class="n">doc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Document</span><span class="o">(</span><span class="s">&quot;users&quot;</span><span class="o">);</span>
 <span class="n">doc</span><span class="o">.</span><span class="na">setField</span><span class="o">(</span><span class="s">&quot;city&quot;</span><span class="o">,</span> <span class="s">&quot;Moscow&quot;</span><span class="o">);</span>
 <span class="n">doc</span><span class="o">.</span><span class="na">setField</span><span class="o">(</span><span class="s">&quot;isPlaceAnyOrder&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
@@ -1020,11 +1020,11 @@
 <table>
 <thead>
 <tr>
-<th>Параметр</th>
-<th>Тип</th>
-<th>Свойства</th>
-<th>Описание</th>
-<th>Пример значения</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Properties</th>
+<th>Description</th>
+<th>Value example</th>
 </tr>
 </thead>
 <tbody>
@@ -1053,12 +1053,12 @@
 <td>callback</td>
 <td><code>CallbackRegisterUser</code></td>
 <td>Обязательныйй</td>
-<td>Callback, который будет вызван после выполнения запроса.</td>
+<td>Callback for the request being executed.</td>
 <td>см.пример ниже</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Пример</strong> </p>
+<p><strong>Example</strong> </p>
 <div class="codehilite"><pre><span></span><span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">();</span>
 <span class="n">user</span><span class="o">.</span><span class="na">register</span><span class="o">(</span><span class="s">&quot;any_username&quot;</span><span class="o">,</span> <span class="s">&quot;anyemail@gmail.com&quot;</span><span class="o">,</span> <span class="s">&quot;test1111&quot;</span><span class="o">,</span> <span class="n">doc</span><span class="o">.</span><span class="na">getDocumentContent</span><span class="o">(),</span> 
     <span class="k">new</span> <span class="n">CallbackRegisterUser</span><span class="o">()</span> <span class="o">{</span>
@@ -1083,11 +1083,11 @@
 <table>
 <thead>
 <tr>
-<th>Параметр</th>
-<th>Тип</th>
-<th>Свойства</th>
-<th>Описание</th>
-<th>Пример значения</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Properties</th>
+<th>Description</th>
+<th>Value example</th>
 </tr>
 </thead>
 <tbody>
@@ -1114,7 +1114,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Пример</strong> </p>
+<p><strong>Example</strong> </p>
 <div class="codehilite"><pre><span></span><span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">();</span>
 <span class="n">user</span><span class="o">.</span><span class="na">login</span><span class="o">(</span><span class="err">“</span><span class="n">anymail</span><span class="nd">@mail.com</span><span class="err">”</span><span class="o">,</span> <span class="err">“</span><span class="n">any</span> <span class="n">pass</span><span class="err">”</span><span class="o">,</span> <span class="k">new</span> <span class="n">CallbackLoginUser</span><span class="o">()</span> <span class="o">{</span>
             <span class="nd">@Override</span>
@@ -1139,11 +1139,11 @@
 <table>
 <thead>
 <tr>
-<th>Параметр</th>
-<th>Тип</th>
-<th>Свойства</th>
-<th>Описание</th>
-<th>Пример значения</th>
+<th>Parameter</th>
+<th>Type</th>
+<th>Properties</th>
+<th>Description</th>
+<th>Value example</th>
 </tr>
 </thead>
 <tbody>
@@ -1151,12 +1151,12 @@
 <td>callback</td>
 <td><code>CallbackLogoutUser</code></td>
 <td>Обязательный</td>
-<td>Callback, который будет вызван после выполнения запроса.</td>
+<td>Callback for the request being executed.</td>
 <td>см.пример ниже</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Пример</strong> </p>
+<p><strong>Example</strong> </p>
 <div class="codehilite"><pre><span></span><span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">();</span>
 <span class="n">user</span><span class="o">.</span><span class="na">logout</span><span class="o">(</span><span class="k">new</span> <span class="n">CallbackLogoutUser</span><span class="o">()</span> <span class="o">{</span>
             <span class="nd">@Override</span>

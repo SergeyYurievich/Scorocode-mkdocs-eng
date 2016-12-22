@@ -338,15 +338,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" title="Примеры триггеров" class="md-nav__link">
-    Примеры триггеров
+  <a href="#trigger-examples" title="Trigger examples" class="md-nav__link">
+    Trigger examples
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" title="Установка обязательности наличия значения поля." class="md-nav__link">
+  <a href="#_1" title="Установка обязательности наличия значения поля." class="md-nav__link">
     Установка обязательности наличия значения поля.
   </a>
   
@@ -360,21 +360,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" title="Добавление связанного документа другой коллекции." class="md-nav__link">
+  <a href="#_2" title="Добавление связанного документа другой коллекции." class="md-nav__link">
     Добавление связанного документа другой коллекции.
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" title="Удаление связанных документов другой коллекции." class="md-nav__link">
+  <a href="#_3" title="Удаление связанных документов другой коллекции." class="md-nav__link">
     Удаление связанных документов другой коллекции.
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" title="Вызов серверного скрипта." class="md-nav__link">
+  <a href="#_4" title="Вызов серверного скрипта." class="md-nav__link">
     Вызов серверного скрипта.
   </a>
   
@@ -1120,15 +1120,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" title="Примеры триггеров" class="md-nav__link">
-    Примеры триггеров
+  <a href="#trigger-examples" title="Trigger examples" class="md-nav__link">
+    Trigger examples
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" title="Установка обязательности наличия значения поля." class="md-nav__link">
+  <a href="#_1" title="Установка обязательности наличия значения поля." class="md-nav__link">
     Установка обязательности наличия значения поля.
   </a>
   
@@ -1142,21 +1142,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" title="Добавление связанного документа другой коллекции." class="md-nav__link">
+  <a href="#_2" title="Добавление связанного документа другой коллекции." class="md-nav__link">
     Добавление связанного документа другой коллекции.
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" title="Удаление связанных документов другой коллекции." class="md-nav__link">
+  <a href="#_3" title="Удаление связанных документов другой коллекции." class="md-nav__link">
     Удаление связанных документов другой коллекции.
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" title="Вызов серверного скрипта." class="md-nav__link">
+  <a href="#_4" title="Вызов серверного скрипта." class="md-nav__link">
     Вызов серверного скрипта.
   </a>
   
@@ -1441,11 +1441,11 @@ If you execute the "insert" operation for the same collection after the "insert"
 
 
 <h3 id="datamanagerrunscriptdata-object">DataManager.RunScript(data Object)<a class="headerlink" href="#datamanagerrunscriptdata-object" title="Permanent link">&para;</a></h3>
-<p>Метод для запуска серверного скрипта. Параметры:</p>
+<p>A method that runs a server-side script. Parameters:</p>
 <p><code>data Object</code> - object containing the following attributes:</p>
 <div class="codehilite"><pre><span></span>{
-    script   : &quot;&quot;, // ID скрипта, обязательный
-    pool     : {}, // пул данных для установки передачи в контекст скрипта, необязательный
+    script   : &quot;&quot;, // script identifier, mandatory
+    pool     : {}, // object with the data that will be passed to the server-side script, optional
 }
 </pre></div>
 
@@ -1467,11 +1467,11 @@ If you execute the "insert" operation for the same collection after the "insert"
 </pre></div>
 
 
-<h2 id="_1">Примеры триггеров<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<h3 id="_2">Установка обязательности наличия значения поля.<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h2 id="trigger-examples">Trigger examples<a class="headerlink" href="#trigger-examples" title="Permanent link">&para;</a></h2>
+<h3 id="_1">Установка обязательности наличия значения поля.<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>Перед добавлением документа проверим наличие значения поля "name" и, в случае его отсутствия, прервем операцию добавления документа.</p>
-<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">pool</span><span class="p">.</span><span class="nx">doc</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">))</span> <span class="p">{</span>   <span class="c1">// проверим наличие поля &quot;name&quot; в создаваемом документе</span>
-        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>                     <span class="c1">// прервем создание документа в случае отсутствия поля</span>
+<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">pool</span><span class="p">.</span><span class="nx">doc</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">))</span> <span class="p">{</span>   
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>                     
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
         <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>                      <span class="c1">// В случае, если значение поля присутствует - продолжим операцию</span>
     <span class="p">};</span>
@@ -1488,7 +1488,7 @@ If you execute the "insert" operation for the same collection after the "insert"
 </pre></div>
 
 
-<h3 id="_3">Добавление связанного документа другой коллекции.<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="_2">Добавление связанного документа другой коллекции.<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>После добавления документа, создадим документ в другой коллекции со ссылкой на добавленный.</p>
 <div class="codehilite"><pre><span></span><span class="nx">DataManager</span><span class="p">.</span><span class="nx">Insert</span><span class="p">({</span>                           <span class="c1">// выполним операцию добавления документа в коллекцию &quot;stuff&quot;</span>
         <span class="nx">coll</span> <span class="o">:</span> <span class="s2">&quot;stuff&quot;</span><span class="p">,</span>
@@ -1499,7 +1499,7 @@ If you execute the "insert" operation for the same collection after the "insert"
 </pre></div>
 
 
-<h3 id="_4">Удаление связанных документов другой коллекции.<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="_3">Удаление связанных документов другой коллекции.<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>Перед удалением документа, удалим все документы другой коллекции со ссылкой на удаляемый.</p>
 <div class="codehilite"><pre><span></span><span class="nx">DataManager</span><span class="p">.</span><span class="nx">Remove</span><span class="p">({</span>                           <span class="c1">// выполним удаление связанных документов в коллекции &quot;stuff&quot;</span>
     <span class="nx">coll</span>  <span class="o">:</span> <span class="s2">&quot;stuff&quot;</span><span class="p">,</span>
@@ -1511,7 +1511,7 @@ If you execute the "insert" operation for the same collection after the "insert"
 </pre></div>
 
 
-<h3 id="_5">Вызов серверного скрипта.<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h3 id="_4">Вызов серверного скрипта.<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>После добавления документа, запустим скрипт, передав ему новый документ. Скрипт может, например, осуществлять рассылку PUSH-уведомлений.</p>
 <div class="codehilite"><pre><span></span><span class="nx">DataManager</span><span class="p">.</span><span class="nx">RunScript</span><span class="p">({</span>                   <span class="c1">// выполним запуск скрипта с ID 580b386d42d52f1ba275fc24</span>
     <span class="nx">script</span>  <span class="o">:</span> <span class="s2">&quot;580b386d42d52f1ba275fc24&quot;</span><span class="p">,</span>
