@@ -664,8 +664,8 @@
     <ul class="md-nav__list">
       
         <li class="md-nav__item">
-  <a href="#sdk" title="Подключение SDK" class="md-nav__link">
-    Подключение SDK
+  <a href="#sdk-integration" title="SDK integration" class="md-nav__link">
+    SDK integration
   </a>
   
 </li>
@@ -781,19 +781,6 @@
 
           
         
-          
-          
-          
-  <li class="md-nav__item">
-    
-      <a href="../Storehouse/" title="Storehouse" class="md-nav__link">
-        Storehouse
-      </a>
-    
-  </li>
-
-          
-        
       </ul>
     </nav>
   </li>
@@ -817,8 +804,8 @@
     <ul class="md-nav__list">
       
         <li class="md-nav__item">
-  <a href="#sdk" title="Подключение SDK" class="md-nav__link">
-    Подключение SDK
+  <a href="#sdk-integration" title="SDK integration" class="md-nav__link">
+    SDK integration
   </a>
   
 </li>
@@ -834,18 +821,18 @@
             <article class="md-content__inner md-typeset">
               
                 
-                <p>SDK предоставляет доступ к платформе Scorocode для построения приложений, основанных на Java / Android.Подробности на нашем сайте: https://scorocode.ru</p>
-<h2 id="sdk">Подключение SDK<a class="headerlink" href="#sdk" title="Permanent link">&para;</a></h2>
-<p>Дистрибутив Scorocode SWIFT SDK можно скачать <a href="https://github.com/Scorocode/scorocode-SDK-JS">тут</a>.</p>
-<p>Исходный код Scorocode Java SDK опубликован в репозитории <a href="https://github.com/Scorocode/scorocode-sdk-java">https://github.com/Scorocode/scorocode-sdk-java</a></p>
-<p>Подключить библиотеку к проекту можно при помощи Gradle добавив в dependencies:</p>
+                <p>SDK provides access to the Scorocode platform for creating java-based applications. Details can be found on our website: https://scorocode.ru </p>
+<p>SDK предоставляет доступ к платформе Scorocode для построения приложений, основанных на Java / Android.Подробности на нашем сайте: https://scorocode.ru</p>
+<h2 id="sdk-integration">SDK integration<a class="headerlink" href="#sdk-integration" title="Permanent link">&para;</a></h2>
+<p>Scorocode Java SDK distribution pack can be found in the repository <a href="https://github.com/Scorocode/scorocode-sdk-java">https://github.com/Scorocode/scorocode-sdk-java</a></p>
+<p>You can integrate SDK with your project using Gradle by adding following dependencies:</p>
 <div class="codehilite"><pre><span></span>dependencies {
    compile &#39;ru.prof-itgroup:scorocode_sdk:1.0.15-beta&#39;
 }
 </pre></div>
 
 
-<p>Убедитесь, что gradle ищет библиотеки в рекомендуемом Google репозитории jcenter (который включает в себя библиотеки maven):</p>
+<p>Make sure, that gradle looking for a libraries in the <code>jcenter</code> repository, that recommended by Goolge (and includes <code>maven</code> libraries):</p>
 <div class="codehilite"><pre><span></span><span class="n">repositories</span> <span class="o">{</span>
    <span class="n">jcenter</span><span class="o">()</span>
 <span class="o">}</span>

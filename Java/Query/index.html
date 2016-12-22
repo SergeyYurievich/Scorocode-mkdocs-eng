@@ -997,19 +997,6 @@
 
           
         
-          
-          
-          
-  <li class="md-nav__item">
-    
-      <a href="../Storehouse/" title="Storehouse" class="md-nav__link">
-        Storehouse
-      </a>
-    
-  </li>
-
-          
-        
       </ul>
     </nav>
   </li>
@@ -1359,10 +1346,6 @@
 </tbody>
 </table>
 <div class="admonition note">
-<p class="admonition-title">Примечание</p>
-<p>Если вы хотите чтобы вместе с id найденных документов возвращались их поля, задайте название необходимых полей с помощью функции <code>setFieldsForSearch(fields)</code></p>
-</div>
-<div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If no criteria are set, the first 50 objects of the collection are returned by default.</p>
 </div>
@@ -1459,8 +1442,8 @@
 </tbody>
 </table>
 <div class="admonition note">
-<p class="admonition-title">Примечание</p>
-<p>Данный метод обновляет не более 1000 документов</p>
+<p class="admonition-title">Note</p>
+<p>This method can update a maximum of 1000 documents in a request.</p>
 </div>
 <p><strong>Example</strong> </p>
 <div class="codehilite"><pre><span></span> <span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Query</span><span class="o">(</span><span class="err">“</span><span class="n">mycollection</span><span class="err">”</span><span class="o">);</span>
@@ -1510,8 +1493,8 @@
 </tbody>
 </table>
 <div class="admonition note">
-<p class="admonition-title">Примечание</p>
-<p>Данный метод удаляет не более 1000 документов</p>
+<p class="admonition-title">Note</p>
+<p>This method can remove a maximum of 1000 documents in a request.</p>
 </div>
 <p><strong>Example</strong> </p>
 <div class="codehilite"><pre><span></span><span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Query</span><span class="o">(</span><span class="err">“</span><span class="n">mycollection</span><span class="err">”</span><span class="o">);</span>
@@ -1558,7 +1541,7 @@
 </table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Limit defaults to 50, but anything from 1 to 1000 is a valid limit.</p>
+<p>Limit defaults to 50, but anything from 1 to 100 is a valid limit.</p>
 </div>
 <p><strong>Example</strong> </p>
 <div class="codehilite"><pre><span></span><span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Query</span><span class="o">(</span><span class="err">“</span><span class="n">mycollection</span><span class="err">”</span><span class="o">);</span>
@@ -1570,7 +1553,7 @@
 <hr />
 <p><a name="Query+setSkip"></a></p>
 <h3 id="setskipskip">.setSkip(skip)<a class="headerlink" href="#setskipskip" title="Permanent link">&para;</a></h3>
-<p>Метод для пропуска части объектов перед возвратом результата совершенной выборки</p>
+<p>Method for skipping some objects before sampling.</p>
 <table>
 <thead>
 <tr>
@@ -1586,7 +1569,7 @@
 <td>skip</td>
 <td><code>Integer</code></td>
 <td>Mandatory</td>
-<td>Количество пропускаемых документов</td>
+<td>Number of skipped objects</td>
 <td>100</td>
 </tr>
 </tbody>
@@ -1601,7 +1584,7 @@
 <hr />
 <p><a name="Query+setPage"></a></p>
 <h3 id="setpagepage">.setPage(page)<a class="headerlink" href="#setpagepage" title="Permanent link">&para;</a></h3>
-<p>Метод для постраничного вывода результатов выборки</p>
+<p>Method for sampling results page by page</p>
 <table>
 <thead>
 <tr>
@@ -1617,7 +1600,7 @@
 <td>page</td>
 <td><code>Integer</code></td>
 <td>Mandatory</td>
-<td>Номер страницы</td>
+<td>Page number</td>
 <td>2</td>
 </tr>
 </tbody>
@@ -1633,7 +1616,7 @@
 <hr />
 <p><a name="Query+equalTo"></a></p>
 <h3 id="equaltofield-value">.equalTo(field, value)<a class="headerlink" href="#equaltofield-value" title="Permanent link">&para;</a></h3>
-<p>Метод для добавления условия выборки: только документы для которых значение поля равно значению в условии выборки.</p>
+<p>Method for retrieving all objects with the field value indicated in the condition.</p>
 <table>
 <thead>
 <tr>
@@ -1649,14 +1632,14 @@
 <td>field</td>
 <td><code>String</code></td>
 <td>Mandatory</td>
-<td>Имя поля, которому задается условие</td>
+<td>Name of the field for which a condition is defined</td>
 <td>"orderNumber"</td>
 </tr>
 <tr>
 <td>value</td>
 <td><code>Object</code></td>
 <td>Mandatory</td>
-<td>Значение для сравнения</td>
+<td>Field value</td>
 <td>22</td>
 </tr>
 </tbody>
@@ -1668,10 +1651,6 @@
 </pre></div>
 
 
-<div class="admonition note">
-<p class="admonition-title">Примечание</p>
-<p>Если вы пытаетесь задать данное условие для поля id документа, помните, что, поскольку id – первичный ключ для документа, вам нужно добавить “_” перед именем поля.</p>
-</div>
 <div class="codehilite"><pre><span></span><span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Query</span><span class="o">(</span><span class="err">“</span><span class="n">mycollection</span><span class="err">”</span><span class="o">);</span>
 <span class="n">query</span><span class="o">.</span><span class="na">equalTo</span><span class="o">(</span><span class="err">“</span><span class="n">_id</span><span class="err">”</span><span class="o">,</span> <span class="err">“</span><span class="n">dasds12dskm</span><span class="err">”</span><span class="o">);</span>
 <span class="c1">//query.findDocuments(…);</span>
@@ -1681,7 +1660,7 @@
 <hr />
 <p><a name="Query+notEqualTo"></a></p>
 <h3 id="notequaltofield-value">.notEqualTo(field, value)<a class="headerlink" href="#notequaltofield-value" title="Permanent link">&para;</a></h3>
-<p>Метод для добавления условия выборки: только документы для которых значение поля не равно значению в условии выборки.</p>
+<p>Method for retrieving all objects except for objects with the field value indicated in the condition.</p>
 <table>
 <thead>
 <tr>
@@ -1697,14 +1676,14 @@
 <td>field</td>
 <td><code>String</code></td>
 <td>Mandatory</td>
-<td>Имя поля, которому задается условие</td>
+<td>Name of the field for which a condition is defined</td>
 <td>"orderNumber"</td>
 </tr>
 <tr>
 <td>value</td>
 <td><code>Object</code></td>
 <td>Mandatory</td>
-<td>Значение для сравнения</td>
+<td>Field value</td>
 <td>22</td>
 </tr>
 </tbody>
@@ -1716,10 +1695,6 @@
 </pre></div>
 
 
-<div class="admonition note">
-<p class="admonition-title">Примечание</p>
-<p>Если вы пытаетесь задать данное условие для поля id документа, помните, что, поскольку id – первичный ключ для документа, вам нужно добавить “_” перед именем поля.</p>
-</div>
 <div class="codehilite"><pre><span></span><span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Query</span><span class="o">(</span><span class="err">“</span><span class="n">mycollection</span><span class="err">”</span><span class="o">);</span>
 <span class="n">query</span><span class="o">.</span><span class="na">equalTo</span><span class="o">(</span><span class="err">“</span><span class="n">_id</span><span class="err">”</span><span class="o">,</span> <span class="err">“</span><span class="n">dasds12dskm</span><span class="err">”</span><span class="o">);</span>
 <span class="c1">//query.findDocuments(…);</span>
@@ -1729,7 +1704,7 @@
 <hr />
 <p><a name="Query+containedIn"></a></p>
 <h3 id="containedinfield-values">.containedIn(field, values)<a class="headerlink" href="#containedinfield-values" title="Permanent link">&para;</a></h3>
-<p>Метод для добавления условия выборки: только документы у которых значение поля совпадает с одним из значений заданного массива.</p>
+<p>Method for retrieving all objects whose field value contains the array elements specified in the query.</p>
 <table>
 <thead>
 <tr>
@@ -1745,15 +1720,15 @@
 <td>field</td>
 <td><code>String</code></td>
 <td>Mandatory</td>
-<td>Имя поля, которому задается условие</td>
+<td>Name of the field for which a condition is defined</td>
 <td>"orderNumbers"</td>
 </tr>
 <tr>
 <td>value</td>
 <td><code>List&lt;тип поля&gt;</code></td>
 <td>Mandatory</td>
-<td>Массив элементов</td>
-<td>см.пример ниже</td>
+<td>Array of values</td>
+<td>see the example below</td>
 </tr>
 </tbody>
 </table>
@@ -1772,7 +1747,7 @@
 <hr />
 <p><a name="Query+containsAll"></a></p>
 <h3 id="containsallfield-values">.containsAll(field, values)<a class="headerlink" href="#containsallfield-values" title="Permanent link">&para;</a></h3>
-<p>Метод для добавления условия выборки:только документы у которых поле (типа массив) содержит все элементы заданного массива</p>
+<p>Method for retrieving all objects whose field value contains all array elements specified in the query.</p>
 <table>
 <thead>
 <tr>
@@ -1788,15 +1763,15 @@
 <td>field</td>
 <td><code>String</code></td>
 <td>Mandatory</td>
-<td>Имя поля, которому задается условие</td>
+<td>Name of the field for which a condition is defined</td>
 <td>"orderNumbers"</td>
 </tr>
 <tr>
 <td>value</td>
 <td><code>List&lt;тип поля&gt;</code></td>
 <td>Mandatory</td>
-<td>Массив элементов</td>
-<td>см.пример ниже</td>
+<td>Array of values</td>
+<td>see the example below</td>
 </tr>
 </tbody>
 </table>
@@ -1814,10 +1789,10 @@
 <hr />
 <p><a name="Query+notContainedIn"></a></p>
 <h3 id="notcontainedinfield-values">.notContainedIn(field, values)<a class="headerlink" href="#notcontainedinfield-values" title="Permanent link">&para;</a></h3>
-<p>Метод для добавления условия выборки: только документы у которых</p>
+<p>Method for retrieving all objects whose field value </p>
 <ul>
-<li>значение поля не совпадает ни с одним из значений заданного массива.</li>
-<li>значение поля не задано (not exist).</li>
+<li>does not contain the array elements specified in the query </li>
+<li>does not exist</li>
 </ul>
 <table>
 <thead>
@@ -1834,15 +1809,15 @@
 <td>field</td>
 <td><code>String</code></td>
 <td>Mandatory</td>
-<td>Имя поля, которому задается условие</td>
+<td>Name of the field for which a condition is defined</td>
 <td>"orderNumbers"</td>
 </tr>
 <tr>
 <td>value</td>
 <td><code>List&lt;тип поля&gt;</code></td>
 <td>Mandatory</td>
-<td>Массив элементов</td>
-<td>см.пример ниже</td>
+<td>Array of values</td>
+<td>see the example below</td>
 </tr>
 </tbody>
 </table>
@@ -1860,7 +1835,7 @@
 <hr />
 <p><a name="Query+greaterThan"></a></p>
 <h3 id="greaterthanfield-value">.greaterThan(field, value)<a class="headerlink" href="#greaterthanfield-value" title="Permanent link">&para;</a></h3>
-<p>Метод для добавления условия выборки: только документы у которых значение поля больше указанного в value значения</p>
+<p>Method for retrieving all objects whose field value is greater than the number specified in the query.</p>
 <table>
 <thead>
 <tr>
@@ -1876,14 +1851,14 @@
 <td>field</td>
 <td><code>String</code></td>
 <td>Mandatory</td>
-<td>Имя поля, которому задается условие</td>
+<td>Name of the field for which a condition is defined</td>
 <td>"fieldname"</td>
 </tr>
 <tr>
 <td>value</td>
 <td><code>Integer / Double / Date</code></td>
 <td>Mandatory</td>
-<td>Значение для сравнения</td>
+<td>Condition value</td>
 <td>22</td>
 </tr>
 </tbody>
@@ -1897,7 +1872,7 @@
 <hr />
 <p><a name="Query+greaterThenOrEqualTo"></a></p>
 <h3 id="greaterthenorequaltofield-value">.greaterThenOrEqualTo(field, value)<a class="headerlink" href="#greaterthenorequaltofield-value" title="Permanent link">&para;</a></h3>
-<p>Метод для добавления условия выборки: только документы у которых значение поля больше или равно указанного в value значения</p>
+<p>Method for retrieving all objects whose field value is no less than the number specified in the query.</p>
 <table>
 <thead>
 <tr>
@@ -1913,14 +1888,14 @@
 <td>field</td>
 <td><code>String</code></td>
 <td>Mandatory</td>
-<td>Имя поля, которому задается условие</td>
+<td>Name of the field for which a condition is defined</td>
 <td>"fieldname"</td>
 </tr>
 <tr>
 <td>value</td>
 <td><code>Integer / Double / Date</code></td>
 <td>Mandatory</td>
-<td>Значение для сравнения</td>
+<td>Condition value</td>
 <td>22</td>
 </tr>
 </tbody>
@@ -1934,7 +1909,7 @@
 <hr />
 <p><a name="Query+lessThan"></a></p>
 <h3 id="lessthanfield-value">.lessThan(field, value)<a class="headerlink" href="#lessthanfield-value" title="Permanent link">&para;</a></h3>
-<p>Метод для добавления условия выборки: только документы у которых значение поля меньше указанного в value значения</p>
+<p>Method for retrieving all objects whose field value is less than the number specified in the query.</p>
 <table>
 <thead>
 <tr>
@@ -1950,14 +1925,14 @@
 <td>field</td>
 <td><code>String</code></td>
 <td>Mandatory</td>
-<td>Имя поля, которому задается условие</td>
+<td>Name of the field for which a condition is defined</td>
 <td>"fieldname"</td>
 </tr>
 <tr>
 <td>value</td>
 <td><code>Integer / Double / Date</code></td>
 <td>Mandatory</td>
-<td>Значение для сравнения</td>
+<td>Condition value</td>
 <td>22</td>
 </tr>
 </tbody>
@@ -1971,7 +1946,7 @@
 <hr />
 <p><a name="Query+lessThanOrEqualTo"></a></p>
 <h3 id="lessthanorequaltofield-value">.lessThanOrEqualTo(field, value)<a class="headerlink" href="#lessthanorequaltofield-value" title="Permanent link">&para;</a></h3>
-<p>Метод для добавления условия выборки: только документы у которых значение поля меньше или равно указанного в value значения</p>
+<p>Method for retrieving all objects whose field value is no greater than the number specified in the query.</p>
 <table>
 <thead>
 <tr>
@@ -1987,14 +1962,14 @@
 <td>field</td>
 <td><code>String</code></td>
 <td>Mandatory</td>
-<td>Имя поля, которому задается условие</td>
+<td>Name of the field for which a condition is defined</td>
 <td>"fieldname"</td>
 </tr>
 <tr>
 <td>value</td>
 <td><code>Integer / Double / Date</code></td>
 <td>Mandatory</td>
-<td>Значение для сравнения</td>
+<td>Condition value</td>
 <td>22</td>
 </tr>
 </tbody>
@@ -2008,7 +1983,7 @@
 <hr />
 <p><a name="Query+exists"></a></p>
 <h3 id="existsfield">.exists(field)<a class="headerlink" href="#existsfield" title="Permanent link">&para;</a></h3>
-<p>Метод для добавления условия выборки: только документы у которых задано значение поля, т.е поле существует и не является пустым.</p>
+<p>Method for retrieving all objects with an existing value of a defined field</p>
 <table>
 <thead>
 <tr>
@@ -2024,7 +1999,7 @@
 <td>field</td>
 <td><code>String</code></td>
 <td>Mandatory</td>
-<td>Имя поля, которому задается условие</td>
+<td>Name of the field for which a condition is defined</td>
 <td>"fieldname"</td>
 </tr>
 </tbody>
@@ -2038,7 +2013,7 @@
 <hr />
 <p><a name="Query+doesNotExist"></a></p>
 <h3 id="doesnotexistfield">.doesNotExist(field)<a class="headerlink" href="#doesnotexistfield" title="Permanent link">&para;</a></h3>
-<p>Метод для добавления условия выборки: только документы у которых не задано значение поля, т.е поле не существует или является пустым.</p>
+<p>Method for retrieving all objects with a missing value in a defined field.</p>
 <table>
 <thead>
 <tr>
@@ -2054,7 +2029,7 @@
 <td>field</td>
 <td><code>String</code></td>
 <td>Mandatory</td>
-<td>Имя поля, которому задается условие</td>
+<td>Name of the field for which a condition is defined</td>
 <td>"fieldname"</td>
 </tr>
 </tbody>
@@ -2068,7 +2043,7 @@
 <hr />
 <p><a name="Query+contains"></a></p>
 <h3 id="containsfield-regex-options">.contains(field, regEx, options)<a class="headerlink" href="#containsfield-regex-options" title="Permanent link">&para;</a></h3>
-<p>Метод для добавления условия выборки: только документы у которых значение поля соответствуют заданному регулярному выражению.</p>
+<p>Method for retrieving all objects with a value of a defined field that matches a defined regular expression.</p>
 <table>
 <thead>
 <tr>
@@ -2084,22 +2059,22 @@
 <td>field</td>
 <td><code>String</code></td>
 <td>Mandatory</td>
-<td>Имя поля, которому задается условие</td>
+<td>Name of the field for which a condition is defined</td>
 <td>"fieldname"</td>
 </tr>
 <tr>
 <td>regEx</td>
 <td><code>String</code></td>
 <td>Mandatory</td>
-<td>Регулярное выражение</td>
+<td>Regular expression</td>
 <td>“aB”</td>
 </tr>
 <tr>
 <td>options</td>
 <td><code>RegexOptions</code></td>
-<td>НеMandatory</td>
-<td>Опции регулярного выражения</td>
-<td>см.пример ниже</td>
+<td>Optional</td>
+<td>Regular expression options</td>
+<td>See the example below</td>
 </tr>
 </tbody>
 </table>
@@ -2115,7 +2090,7 @@
 <hr />
 <p><a name="Query+startsWith"></a></p>
 <h3 id="startswithfield-regex-options">.startsWith(field, regEx, options)<a class="headerlink" href="#startswithfield-regex-options" title="Permanent link">&para;</a></h3>
-<p>Метод для добавления условия выборки: только документы у которых значение поля начинается с заданной строки</p>
+<p>Method for retrieving all objects with a value of a defined field starting from a specified string.</p>
 <table>
 <thead>
 <tr>
@@ -2131,29 +2106,25 @@
 <td>field</td>
 <td><code>String</code></td>
 <td>Mandatory</td>
-<td>Имя поля, которому задается условие</td>
+<td>Name of the field for which a condition is defined</td>
 <td>"fieldname"</td>
 </tr>
 <tr>
 <td>regEx</td>
 <td><code>String</code></td>
 <td>Mandatory</td>
-<td>Строка с которой должно начинаться значение поля</td>
+<td>Regular expression</td>
 <td>“aB”</td>
 </tr>
 <tr>
 <td>options</td>
 <td><code>RegexOptions</code></td>
-<td>НеMandatory</td>
-<td>Опции регулярного выражения</td>
-<td>см.пример ниже</td>
+<td>Optional</td>
+<td>Regular expression options</td>
+<td>See the example below</td>
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="admonition-title">Примечание</p>
-<p>Параметр options позволяет, к примеру, искать все документы начинающиеся с “aB” не зависимо от регистра, т.е искать документы, начинающиеся на ab, aB, Ab, AB.</p>
-</div>
 <p><strong>Example</strong> </p>
 <div class="codehilite"><pre><span></span> <span class="n">RegexOptions</span> <span class="n">regexOptions</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RegexOptions</span><span class="o">();</span>
  <span class="n">regexOptions</span><span class="o">.</span><span class="na">setRegexCaseInsenssitive</span><span class="o">();</span>
@@ -2166,7 +2137,7 @@
 <hr />
 <p><a name="Query+endsWith"></a></p>
 <h3 id="endswithfield-regex-options">.endsWith(field, regEx, options)<a class="headerlink" href="#endswithfield-regex-options" title="Permanent link">&para;</a></h3>
-<p>Метод для добавления условия выборки: только документы у которых значение поля заканчивается с заданной строки</p>
+<p>Method for retrieving all objects with a value of a defined field ending with a specified string.</p>
 <table>
 <thead>
 <tr>
@@ -2182,34 +2153,30 @@
 <td>field</td>
 <td><code>String</code></td>
 <td>Mandatory</td>
-<td>Имя поля, которому задается условие</td>
+<td>Name of the field for which a condition is defined</td>
 <td>"fieldname"</td>
 </tr>
 <tr>
 <td>regEx</td>
 <td><code>String</code></td>
 <td>Mandatory</td>
-<td>Строка, на которую должно заканчиваться значение поля</td>
-<td>“aaB”</td>
+<td>Regular expression</td>
+<td>“aB”</td>
 </tr>
 <tr>
 <td>options</td>
 <td><code>RegexOptions</code></td>
-<td>НеMandatory</td>
-<td>Опции регулярного выражения</td>
-<td>см.пример ниже</td>
+<td>Optional</td>
+<td>Regular expression options</td>
+<td>See the example below</td>
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="admonition-title">Примечание</p>
-<p>Параметр options позволяет, к примеру, искать все документы начинающиеся с “aB” не зависимо от регистра, т.е искать документы, начинающиеся на ab, aB, Ab, AB.</p>
-</div>
 <p><strong>Example</strong> </p>
 <div class="codehilite"><pre><span></span> <span class="n">RegexOptions</span> <span class="n">regexOptions</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RegexOptions</span><span class="o">();</span>
  <span class="n">regexOptions</span><span class="o">.</span><span class="na">setRegexCaseInsenssitive</span><span class="o">();</span>
 
- <span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Query</span><span class="o">(</span><span class="err">“</span><span class="n">mycollection</span><span class="err">”</span><span class="o">).</span><span class="na">startsWith</span> <span class="o">(</span><span class="s">&quot;exampleField&quot;</span><span class="o">,</span> <span class="s">&quot;a&quot;</span><span class="o">,</span> <span class="n">regexOptions</span><span class="o">)</span>
+ <span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Query</span><span class="o">(</span><span class="err">“</span><span class="n">mycollection</span><span class="err">”</span><span class="o">).</span><span class="na">endsWith</span><span class="o">(</span><span class="s">&quot;exampleField&quot;</span><span class="o">,</span> <span class="s">&quot;a&quot;</span><span class="o">,</span> <span class="n">regexOptions</span><span class="o">)</span>
  <span class="c1">//query.findDocuments(…);</span>
 </pre></div>
 
@@ -2217,7 +2184,7 @@
 <hr />
 <p><a name="Query+and"></a></p>
 <h3 id="andfield-query">.and(field, query)<a class="headerlink" href="#andfield-query" title="Permanent link">&para;</a></h3>
-<p>Метод логического умножения нескольких условий выборки по одному полю</p>
+<p>Method for logical multiplication of several samplings conditions</p>
 <table>
 <thead>
 <tr>
@@ -2233,15 +2200,15 @@
 <td>field</td>
 <td><code>String</code></td>
 <td>Mandatory</td>
-<td>Имя поля, которому задается условие</td>
+<td>Name of the field for which a condition is defined</td>
 <td>"fieldname"</td>
 </tr>
 <tr>
 <td>query</td>
 <td><code>Query</code></td>
 <td>Mandatory</td>
-<td>Объект класса Query, содержащий данные для выборки</td>
-<td>см.пример ниже</td>
+<td>Query that is included in the conjunction operation</td>
+<td>See the example below</td>
 </tr>
 </tbody>
 </table>
@@ -2257,7 +2224,7 @@
 <hr />
 <p><a name="Query+or"></a></p>
 <h3 id="orfield-query">.or(field, query)<a class="headerlink" href="#orfield-query" title="Permanent link">&para;</a></h3>
-<p>Метод логического сложения нескольких условий выборки по одному полю</p>
+<p>Method for logical addition of several samplings conditions</p>
 <table>
 <thead>
 <tr>
@@ -2273,15 +2240,15 @@
 <td>field</td>
 <td><code>String</code></td>
 <td>Mandatory</td>
-<td>Имя поля, которому задается условие</td>
+<td>Name of the field for which a condition is defined</td>
 <td>"fieldname"</td>
 </tr>
 <tr>
 <td>query</td>
 <td><code>Query</code></td>
 <td>Mandatory</td>
-<td>Объект класса Query, содержащий данные для выборки</td>
-<td>см.пример ниже</td>
+<td>Query that is included in the conjunction operation</td>
+<td>See the example below</td>
 </tr>
 </tbody>
 </table>
@@ -2297,7 +2264,7 @@
 <hr />
 <p><a name="Query+raw"></a></p>
 <h3 id="rawjson">.raw(json)<a class="headerlink" href="#rawjson" title="Permanent link">&para;</a></h3>
-<p>Метод для задания условий выборки в формате json.</p>
+<p>Method for defining sampling conditions in the form of a JSON structure to create a DB query in MongoDB language.</p>
 <table>
 <thead>
 <tr>
@@ -2313,7 +2280,7 @@
 <td>json</td>
 <td><code>String</code></td>
 <td>Mandatory</td>
-<td>Условия выборки в формате json</td>
+<td>Applied filter in the MongoDB query language format</td>
 <td>"{\"_id\": {\"$eq\": \"W9vrMS9SuW\"}}"</td>
 </tr>
 </tbody>
@@ -2328,7 +2295,7 @@
 <hr />
 <p><a name="Query+reset"></a></p>
 <h3 id="reset">.reset()<a class="headerlink" href="#reset" title="Permanent link">&para;</a></h3>
-<p>Метод для очистки условия выборки.</p>
+<p>Method for resetting the sampling conditions</p>
 <p><strong>Example</strong> </p>
 <div class="codehilite"><pre><span></span><span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Query</span><span class="o">(</span><span class="err">“</span><span class="n">mycollection</span><span class="err">”</span><span class="o">);</span>
 <span class="n">query</span><span class="o">.</span><span class="na">equalTo</span><span class="o">(</span><span class="err">“</span><span class="n">_id</span><span class="err">”</span><span class="o">,</span> <span class="err">“</span><span class="n">dsads123sd</span><span class="err">”</span><span class="o">);</span>
@@ -2341,7 +2308,7 @@
 <hr />
 <p><a name="Query+ascending"></a></p>
 <h3 id="ascendingfield">.ascending(field)<a class="headerlink" href="#ascendingfield" title="Permanent link">&para;</a></h3>
-<p>Метод для сортировки данных указанного поля в порядке возрастания перед совершением выборки.</p>
+<p>Method for sorting a specified field data in ascending order before sampling.</p>
 <table>
 <thead>
 <tr>
@@ -2357,7 +2324,7 @@
 <td>field</td>
 <td><code>String</code></td>
 <td>Mandatory</td>
-<td>Имя поля, которому задается условие</td>
+<td>Field name</td>
 <td>"fieldname"</td>
 </tr>
 </tbody>
@@ -2372,7 +2339,7 @@
 <hr />
 <p><a name="Query+descending"></a></p>
 <h3 id="descendingfield">.descending(field)<a class="headerlink" href="#descendingfield" title="Permanent link">&para;</a></h3>
-<p>Метод для сортировки данных указанного поля в порядке убывания перед совершением выборки.</p>
+<p>Method for sorting a specified field data in descending order before sampling.</p>
 <table>
 <thead>
 <tr>
@@ -2388,7 +2355,7 @@
 <td>field</td>
 <td><code>String</code></td>
 <td>Mandatory</td>
-<td>Имя поля, которому задается условие</td>
+<td>Field name</td>
 <td>"fieldname"</td>
 </tr>
 </tbody>
@@ -2403,7 +2370,7 @@
 <hr />
 <p><a name="Query+setFieldsForSearch"></a></p>
 <h3 id="setfieldsforsearchfields">.setFieldsForSearch(fields)<a class="headerlink" href="#setfieldsforsearchfields" title="Permanent link">&para;</a></h3>
-<p>Метод для задания списка возвращаемых полей.</p>
+<p>Method for specifying a list of returned fields.</p>
 <table>
 <thead>
 <tr>
@@ -2419,8 +2386,8 @@
 <td>fields</td>
 <td><code>List&lt;String&gt;</code></td>
 <td>Mandatory</td>
-<td>Имена полей</td>
-<td>см.пример ниже</td>
+<td>Fields names</td>
+<td>See the example below</td>
 </tr>
 </tbody>
 </table>
@@ -2438,7 +2405,7 @@
 <hr />
 <p><a name="Query+getQueryInfo"></a></p>
 <h3 id="getqueryinfo">.getQueryInfo()<a class="headerlink" href="#getqueryinfo" title="Permanent link">&para;</a></h3>
-<p>Метод для получения информации о условиях выборки</p>
+<p>Method for retrieving query conditions info</p>
 <p><strong>Example</strong> </p>
 <div class="codehilite"><pre><span></span><span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Query</span><span class="o">(</span><span class="err">“</span><span class="n">mycollection</span><span class="err">”</span><span class="o">);</span>
 <span class="n">query</span><span class="o">.</span><span class="na">equalTo</span><span class="o">(</span><span class="err">“</span><span class="n">_id</span><span class="err">”</span><span class="o">,</span> <span class="err">“</span><span class="n">dsads123sd</span><span class="err">”</span><span class="o">);</span>
