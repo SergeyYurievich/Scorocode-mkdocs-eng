@@ -1,10 +1,5 @@
 <a name="User"></a>
 
-## User
-Класс для работы с пользователями приложения.
-
-**Содержание**
-
 * [User](#User)
     * [new User(name)](#User_new)
     * [.register(username, email,  password,  documentContent,  callback)](#User+register1) 
@@ -18,7 +13,7 @@
 
 ### new User()
 
-Инициализация экземпляра класса User
+User initialization
 
 **Example** 
 ```Java
@@ -30,18 +25,18 @@ User appUser = new User();
 
 ### .register(callback, username, email, password)
 
-Метод для регистрации нового пользователя приложения (с возможностью добавления дополнительной информации о нем).
+Method for application user registration, using associated Document
 
 | Parameter | Type | Properties | Description | Value example |
 |-----------|------|------------|-------------|---------------|
-| username  | `String`              | Обязательный | Имя пользователя                 | "Username"                     | 
-| email     | `String`              | Обязательный | Email пользователя               | "user@domain.zone"          | 
-| password  | `String`              | Обязательный | Пароль пользователя              | "CorrectHorseBatteryStaple" |
-| documentContent  | `DocumentInfo`  | Необязательный | Документ, ассоциированный с пользователем | см.пример ниже |
-| callback  | `CallbackRegisterUser` | Обязательныйй | Callback for the request being executed. | см.пример ниже  |
-
+| username  | `String`              | Mandatory | Username                 | "Jovan"                     | 
+| email     | `String`              | Mandatory | User email               | "user@domain.zone"          | 
+| password  | `String`              | Mandatory | User password            | "CorrectHorseBatteryStaple" |
+| documentContent  | `DocumentInfo`  | Optional | Document, associated with user | See the example below |
+| callback  | `CallbackRegisterUser` | Mandatoryй | Callback for the request being executed. | See the example below  |
 
 **Example** 
+
 ```Java
 Document doc = new Document("users");
 doc.setField("city", "Moscow");
@@ -69,17 +64,18 @@ user.register("any_username", "anyemail@mailinator.com", "test1111", doc.getDocu
 
 ### .register(username, email, password, callback)
 
-Метод для регистрации нового пользователя приложения
+Method for application user registration
 
 | Parameter | Type | Properties | Description | Value example |
 |-----------|------|------------|-------------|---------------|
-| username  | `String`              | Обязательный | Имя пользователя                 | "Jovan"                     | 
-| email     | `String`              | Обязательный | Email пользователя               | "user@domain.zone"          | 
-| password  | `String`              | Обязательный | Пароль пользователя              | "CorrectHorseBatteryStaple" |
-| callback  | `CallbackRegisterUser` | Обязательныйй | Callback for the request being executed. |  см.пример ниже |
+| username  | `String`              | Mandatory | Username                 | "Jovan"                     | 
+| email     | `String`              | Mandatory | User email               | "user@domain.zone"          | 
+| password  | `String`              | Mandatory | User password            | "CorrectHorseBatteryStaple" |
+| callback  | `CallbackRegisterUser` | Mandatory | Callback for the request being executed. |  See the example below |
 
 
 **Example** 
+
 ```Java
 User user = new User();
 user.register("any_username", "anyemail@gmail.com", "test1111", doc.getDocumentContent(), 
@@ -103,16 +99,17 @@ user.register("any_username", "anyemail@gmail.com", "test1111", doc.getDocumentC
 
 ### .login(email, password, callback)
 
-Метод для аутентификации пользователя приложения
+Method for application user authentication
 
 | Parameter | Type | Properties | Description | Value example |
 |-----------|------|------------|-------------|---------------|
-| email     | `String`              | Обязательный | Email пользователя               | "user@domain.zone" | 
-| password  | `String`              | Обязательный | Пароль пользователя              | "CorrectHorseBatteryStaple" |
-| callback  | `CallbackLoginUser` |  | Коллбэк для выполняемого запроса |  см.пример ниже  | 
+| email     | `String`              | Mandatory | User email     | "user@domain.zone" | 
+| password  | `String`              | Mandatory | User password  | "CorrectHorseBatteryStaple" |
+| callback  | `CallbackLoginUser` |  | Callback for the request being executed.  |  See the example below  | 
 
 
 **Example** 
+
 ```Java
 User user = new User();
 user.login(“anymail@mail.com”, “any pass”, new CallbackLoginUser() {
@@ -135,14 +132,15 @@ user.login(“anymail@mail.com”, “any pass”, new CallbackLoginUser() {
 
 ### .logout(callback)
 
-Метод для завершения активноий сессии пользователя.
+Method for application user deauthentication. 
 
 | Parameter | Type | Properties | Description | Value example |
 |-----------|------|------------|-------------|---------------|
-| callback  | `CallbackLogoutUser` | Обязательный | Callback for the request being executed.   |       см.пример ниже          | 
+| callback  | `CallbackLogoutUser` | Mandatory | Callback for the request being executed.   |  See the example below | 
 
 
 **Example** 
+
 ```Java
 User user = new User();
 user.logout(new CallbackLogoutUser() {

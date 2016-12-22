@@ -1,12 +1,13 @@
+SDK provides access to the Scorocode platform for creating java-based applications. Details can be found on our website: https://scorocode.ru 
+
+
 SDK предоставляет доступ к платформе Scorocode для построения приложений, основанных на Java / Android.Подробности на нашем сайте: https://scorocode.ru
 
-## Подключение SDK
+## SDK integration
 
-Дистрибутив Scorocode SWIFT SDK можно скачать [тут](https://github.com/Scorocode/scorocode-SDK-JS).
+Scorocode Java SDK distribution pack can be found in the repository <https://github.com/Scorocode/scorocode-sdk-java>
 
-Исходный код Scorocode Java SDK опубликован в репозитории <https://github.com/Scorocode/scorocode-sdk-java>
-
-Подключить библиотеку к проекту можно при помощи Gradle добавив в dependencies:
+You can integrate SDK with your project using Gradle by adding following dependencies:
 
 ```
 dependencies {
@@ -14,7 +15,7 @@ dependencies {
 }
 ```
 
-Убедитесь, что gradle ищет библиотеки в рекомендуемом Google репозитории jcenter (который включает в себя библиотеки maven):
+Make sure, that gradle looking for a libraries in the `jcenter` repository, that recommended by Goolge (and includes `maven` libraries):
 
 ```java
 repositories {

@@ -1,9 +1,6 @@
 <a name="Update"></a>
 
-## Update
-Класс для обновления полей документа из БД
-
-**Содержание**
+Class for multiple object update operations
 
 * [Update](#Update)
     * [new Update()](#Update_new)
@@ -26,13 +23,13 @@
 <a name="Update_new"></a>
 
 ### new Update()
-Конструктор Update()
+Update() constructor
 
 ```Java
 Update  = new Update();
 ```
 
-Работа с методами данного класса возможна также через метод .updateDocument класса Document
+You can work with the methods of Update class using Document's .updateDocument method
 
 ```Java
 Document document = new Document("ordersCollection");
@@ -44,12 +41,12 @@ Document document = new Document("ordersCollection");
 
 <a name="Update+set"></a>
 ### .set(field,value)
-Метод для установки нового значения поля документа БД.
+Method for setting data to document's field
 
 | Parameter | Type | Properties | Description | Value example |
 |-----------|------|------------|-------------|---------------|
-| field | `String` |                                            Обязательный | Имя поля для изменения  | "orderNumber"   |
-| value | `Object` | Обязательный |  Новое значение поля |  22 |
+| field | `String` | Mandatory | Field name to update  | "orderNumber"   |
+| value | `Object` | Mandatory | New field value |  22 |
 
 
 **Example**
@@ -93,12 +90,13 @@ document.getDocumentById("KH3JCojAyT", new CallbackFindDocument() {
 
 <a name="Update+push"></a>
 ### .push(field, value)
-Метод для добавления элемента в поле (типа массив) документа БД
+
+Method for adding an element to an array field
 
 | Parameter | Type | Properties | Description | Value example |
 |-----------|------|------------|-------------|---------------|
-| field | `String` |                                            Обязательный | Имя поля типа Array  | "orderNumber"   |
-| value | `Object` | Обязательный | Элемент для добавления в массив | -42.42 |
+| field | `String` | Mandatory | Name of the field whose value should be updated | "orderNumber"   |
+| value | `Object` | Mandatory | Value of the new array element | -42.42 |
 
 **Example**
 ```Java
@@ -139,11 +137,11 @@ document.getDocumentById("KH3JCojAyT", new CallbackFindDocument() {
 
 <a name="Update+popFirst"></a>
 ### .popFirst(field)
-Метод для удаления первого элемента из поля (типа массив) документа БД.
+Method for removing the first array element of the field
 
 | Parameter | Type | Properties | Description | Value example |
 |-----------|------|------------|-------------|---------------|
-| field | `String` |                                            Обязательный | Имя поля типа Array  | "orderNumber"   |
+| field | `String` | Mandatory | Name of the field whose value should be updated | "orderNumber"   |
 
 **Example**
 ```Java
@@ -184,11 +182,11 @@ document.getDocumentById("KH3JCojAyT", new CallbackFindDocument() {
 
 <a name="Update+popLast"></a>
 ### .popLast(field)
-Метод для удаления последнего элемента из поля (типа массив) документа БД.
+Method for removing the last array element of the field
 
 | Parameter | Type | Properties | Description | Value example |
 |-----------|------|------------|-------------|---------------|
-| field | `String` |                                            Обязательный | Имя поля типа Array  | "orderNumber"   |
+| field | `String` | Mandatory | Name of the field whose value should be updated | "orderNumber"   |
 
 
 **Example**
@@ -230,15 +228,15 @@ document.getDocumentById("KH3JCojAyT", new CallbackFindDocument() {
 
 <a name="Update+pull"></a>
 ### .pull(field, value)
-Метод для удаления заданного элемента из поля (типа массив) документа БД.
+Method for removing all array elements whose values are the same as the specified one.
 
 | Parameter | Type | Properties | Description | Value example |
 |-----------|------|------------|-------------|---------------|
-| field | `String` |                                            Обязательный | Имя поля типа Array  | "orderNumber"   |
-| value | `Object` | Обязательный | Элемент для удаления из массива | "delete me" |
+| field | `String` | Mandatory | Name of the field whose value should be updated  | "orderNumber"   |
+| value | `Object` | Mandatory | Value of the element to be removed | "delete me" |
 
-!!! note "Примечание"
-    Если в массиве несколько элементов со значением, соответствующим значению value, данный метод удалит все эти элементы.
+!!! note "Note"
+    If there are many elements with specified value, this method will remove all of them.
 
 **Example**
 ```Java
@@ -275,12 +273,12 @@ document.getDocumentById("KH3JCojAyT", new CallbackFindDocument() {
 
 <a name="Update+pullAll"></a>
 ### .pullAll(field, value)
-Метод для удаления всех переданных (в качестве параметра values) элементов из поля (типа массив) документа БД.
+Method for removing all array elements whose values are the same as one of the specified values.
 
 | Parameter | Type | Properties | Description | Value example |
 |-----------|------|------------|-------------|---------------|
-| field | `String` |                                            Обязательный | Имя поля типа Array  | "orderNumber"   |
-| value | `List<Object>` | Обязательный | Элементы для удаления из массива | см. пример ниже |
+| field | `String` | Mandatory | ИName of the field whose value should be updated | "orderNumber"   |
+| value | `List<Object>` | Mandatory | Array of values to be removed  | See the example below |
 
 
 **Example**
@@ -325,12 +323,12 @@ document.getDocumentById("KH3JCojAyT", new CallbackFindDocument() {
 
 <a name="Update+addToSet"></a>
 ### .addToSet(field, value)
-Метод для для добавления элемента в поле (типа массив) документа БД если он еще не присутствует в нем.
+Method for adding an element to an array only if there are no elements with the same name in the array.
 
 | Parameter | Type | Properties | Description | Value example |
 |-----------|------|------------|-------------|---------------|
-| field | `String` |                                            Обязательный | Имя поля типа Array  | "orderNumber"   |
-| value | `List<Object>` | Обязательный | Элементы для добавления в массив | см. пример ниже |
+| field | `String` | Mandatory | Name of the field whose value should be updated  | "orderNumber"  |
+| value | `List<Object>` | Mandatory | Value of the new array element  | See the example below |
 
 
 **Example**
@@ -368,12 +366,12 @@ document.getDocumentById("KH3JCojAyT", new CallbackFindDocument() {
 
 <a name="Update+inc"></a>
 ### .inc(field,  increaseValue)
-Метод для увеличения значения поля документа БД на заданное значение. Примечание: число может иметь отрицательное значение
+The method increments the numeric of date field value by a defined number of date
 
 | Parameter | Type | Properties | Description | Value example |
 |-----------|------|------------|-------------|---------------|
-| field | `String` |                                            Обязательный | Имя поля  | "counter"   |
-| value | `Integer / Double / Date` | Обязательный | Шаг изменения | -2.2 |
+| field | `String` | Mandatory | Name of the field whose value should be updated  | "counter"   |
+| value | `Integer / Double / Date` | Mandatory | Increment step   | -2.2 |
 
 **Example**
 ```Java
@@ -412,11 +410,11 @@ document.getDocumentById("KH3JCojAyT", new CallbackFindDocument() {
 
 <a name="Update+setCurrentDate"></a>
 ### .setCurrentDate(field)
-Метод для установки текущей даты в поле (типа Date) документа БД.
+Sets the current time as the field's value
 
 | Parameter | Type | Properties | Description | Value example |
 |-----------|------|------------|-------------|---------------|
-| field | `String` |                                            Обязательный | Имя поля типа Date  | "registerDate"   |
+| field | `String` | Mandatory | Name of the field whose value should be updated | "registerDate"   |
 
 
 **Example**
@@ -456,12 +454,12 @@ document.getDocumentById("KH3JCojAyT", new CallbackFindDocument() {
 
 <a name="Update+mul"></a>
 ### .mul(field, value)
-Метод для умножения поля документа БД на заданное значение.
+The method multiplies the numeric field value by a defined number
 
 | Parameter | Type | Properties | Description | Value example |
 |-----------|------|------------|-------------|---------------|
-| field | `String` |                                            Обязательный | Имя поля  | "counter"   |
-| value | `Integer / Double` | Обязательный | Мультипликатор | -2.2 |
+| field | `String` | Mandatory | Name of the field whose value should be updated  | "counter" |
+| value | `Integer / Double` | Mandatory | Multiplier | -2.2 |
 
 
 **Example**
@@ -500,12 +498,12 @@ document.getDocumentById("KH3JCojAyT", new CallbackFindDocument() {
 
 <a name="Update+min"></a>
 ### .min(field, valueToCompare)
-Метод обновляет значение числового поля только в случае, если новое значение меньше текущего значения поля
+The method updates the numeric field value only if the new value is less than the current field value
 
 | Parameter | Type | Properties | Description | Value example |
 |-----------|------|------------|-------------|---------------|
-| field           |`String`         | Обязательный |  Имя поля, значение которого нужно изменить  | "price" |
-| valueToCompare        | `Integer / Double`      | Обязательный | значение для сравнения с текущим значением поля | 43    |
+| field           |`String`         | Mandatory | Name of the field whose value should be updated  | "price" |
+| valueToCompare        | `Integer / Double`      | Mandatory | New value to be compared | 43    |
 
 **Example**
 ```Java
@@ -543,12 +541,13 @@ document.getDocumentById("KH3JCojAyT", new CallbackFindDocument() {
 
 <a name="Update+max"></a>
 ### .max(field, valueToCompare)
-Метод обновляет значение числового поля только в случае, если новое значение больше текущего значения поля
+The method updates the numeric field value only if the new value is greater than the current field value
+
 
 | Parameter | Type | Properties | Description | Value example |
 |-----------|------|------------|-------------|---------------|
-| field           |`String`         | Обязательный |  Имя поля, значение которого нужно изменить  | "price" |
-| valueToCompare        | `Integer / Double`      | Обязательный | значение для сравнения с текущим значением поля | 43    |
+| field           |`String` | Mandatory |  Name of the field whose value should be updated  | "price" |
+| valueToCompare  | `Integer / Double` | Mandatory | New value to be compared | 43    |
 
 **Example**
 ```Java
@@ -587,4 +586,5 @@ document.getDocumentById("KH3JCojAyT", new CallbackFindDocument() {
 
 <a name="Update+getUpdateInfo"></a>
 ### .getUpdateInfo()
-Метод для получения информации, необходимой методам для обновления документа.
+
+Method for retrieving Update conditions info

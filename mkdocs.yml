@@ -50,7 +50,6 @@ pages:
         - 'Script': 'Java/Script.md'
         - 'Message': 'Java/Message.md'
         - 'WebSocket': 'Java/WebSocket.md'
-        - 'Storehouse': 'Java/Storehouse.md'
 theme_dir: 'material'
 extra:
   logo: 'img/logo.png'

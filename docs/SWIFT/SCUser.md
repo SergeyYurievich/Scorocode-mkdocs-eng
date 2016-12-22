@@ -68,7 +68,7 @@ Method for application user authentication
 <a name="SCUser+logout"></a>
 ### .logout(callback)
 
-Метод для завершения активной сессии пользователя.
+Method for application user deauthentication. 
 
 | Parameter | Type | Properties | Description | Value example |
 | --- | --- | --- | --- | --- |

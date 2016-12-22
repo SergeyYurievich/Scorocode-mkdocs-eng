@@ -44,9 +44,9 @@
 
 Initialisation of a collection data query
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-|  collection_name  | `String`  |    | Collection name |  "things"  |
+| Parameter       | Type     | Properties | Description     | Value example |
+|-----------------|----------|------------|-----------------|---------------|
+| collection_name | `String` |            | Collection name | "things"      |
 
 **Example** 
 
@@ -60,13 +60,10 @@ Query query = new Query("name");
 Method for requesting a document from a collection. Returns data of the objects that match the sampling criteria. 
 
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| callback | `CallbackFindDocument` |    Mandatory | Callback for the request being executed.|    |
+| Parameter | Type                   | Properties | Description                              | Value example |
+|-----------|------------------------|------------|------------------------------------------|---------------|
+| callback  | `CallbackFindDocument` | Mandatory  | Callback for the request being executed. |               |
 
-
-!!! note "Примечание"
-    Если вы хотите чтобы вместе с id найденных документов возвращались их поля, задайте название необходимых полей с помощью функции `setFieldsForSearch(fields)`
 
 !!! note "Note"
     If no criteria are set, the first 50 objects of the collection are returned by default.
@@ -97,9 +94,9 @@ query.findDocuments(new CallbackFindDocument() {
 
 Method for counting objects that meet the query conditions.
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| callback | `CallbackCountDocument ` |                                            Mandatory | Callback for the request being executed.|    |
+| Parameter | Type                     | Properties | Description                              | Value example |
+|-----------|--------------------------|------------|------------------------------------------|---------------|
+| callback  | `CallbackCountDocument ` | Mandatory  | Callback for the request being executed. |               |
 
 
 **Example** 
@@ -127,13 +124,14 @@ Query query = new Query(“mycollection”);
 
 Method for updating the requested objects.
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| update | `Update` | Mandatory | Update object  |   |
-| callback | `CallbackUpdateDocument` | Mandatory |  Callback for the request being executed.  |  |
+| Parameter | Type                     | Properties | Description                              | Value example |
+|-----------|--------------------------|------------|------------------------------------------|---------------|
+| update    | `Update`                 | Mandatory  | Update object                            |               |
+| callback  | `CallbackUpdateDocument` | Mandatory  | Callback for the request being executed. |               |
 
-!!! note "Примечание"
-    Данный метод обновляет не более 1000 документов
+
+!!! note "Note"
+    This method can update a maximum of 1000 documents in a request.
 
 **Example** 
 
@@ -165,12 +163,12 @@ Method for updating the requested objects.
 
 Method for removing the requested documents.
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| callback | `CallbackRemoveDocument` | Mandatory |  Callback for the request being executed.  |  |
+| Parameter | Type                     | Properties | Description                              | Value example |
+|-----------|--------------------------|------------|------------------------------------------|---------------|
+| callback  | `CallbackRemoveDocument` | Mandatory  | Callback for the request being executed. |               |
 
-!!! note "Примечание"
-    Данный метод удаляет не более 1000 документов
+!!! note "Note"
+    This method can remove a maximum of 1000 documents in a request.
 
 **Example** 
 
@@ -199,12 +197,13 @@ Query query = new Query(“mycollection”);
 
 Method for specifying a limit for the number of sampling, updating or removing documents.
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| limit | `Integer` |   Mandatory | Limit | 15  |
+| Parameter | Type      | Properties | Description | Value example |
+|-----------|-----------|------------|-------------|---------------|
+| limit     | `Integer` | Mandatory  | Limit       | 15            |
+
 
 !!! note "Note"
-    Limit defaults to 50, but anything from 1 to 1000 is a valid limit.
+    Limit defaults to 50, but anything from 1 to 100 is a valid limit.
 
 **Example** 
 
@@ -218,11 +217,11 @@ query.setLimit(15);
 <a name="Query+setSkip"></a>
 ### .setSkip(skip)
 
-Метод для пропуска части объектов перед возвратом результата совершенной выборки
+Method for skipping some objects before sampling.
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| skip | `Integer` | Mandatory | Количество пропускаемых документов | 100  |
+| Parameter | Type      | Properties | Description               | Value example |
+|-----------|-----------|------------|---------------------------|---------------|
+| skip      | `Integer` | Mandatory  | Number of skipped objects | 100           |
 
 **Example** 
 
@@ -236,11 +235,11 @@ query.setSkip(12);
 <a name="Query+setPage"></a>
 ### .setPage(page)
 
-Метод для постраничного вывода результатов выборки
+Method for sampling results page by page
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| page | `Integer` |  Mandatory | Номер страницы | 2  |
+| Parameter | Type      | Properties | Description | Value example |
+|-----------|-----------|------------|-------------|---------------|
+| page      | `Integer` | Mandatory  | Page number | 2             |
 
 **Example** 
 
@@ -255,13 +254,13 @@ query.setPage(1);
 <a name="Query+equalTo"></a>
 ### .equalTo(field, value)
 
-Метод для добавления условия выборки: только документы для которых значение поля равно значению в условии выборки.
+Method for retrieving all objects with the field value indicated in the condition.
 
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| field | `String` | Mandatory | Имя поля, которому задается условие | "orderNumber"   |
-| value | `Object` | Mandatory |  Значение для сравнения                   |  22 |
+| Parameter | Type     | Properties | Description                                        | Value example |
+|-----------|----------|------------|----------------------------------------------------|---------------|
+| field     | `String` | Mandatory  | Name of the field for which a condition is defined | "orderNumber" |
+| value     | `Object` | Mandatory  | Field value                                        | 22            |
 
 **Example** 
 
@@ -270,9 +269,6 @@ Query query = new Query(“mycollection”);
 query.equalTo(“orderNumber”, 22);
 //query.findDocuments(…);
 ```
-
-!!! note "Примечание"
-    Если вы пытаетесь задать данное условие для поля id документа, помните, что, поскольку id – первичный ключ для документа, вам нужно добавить “_” перед именем поля.
 
 ```Java
 Query query = new Query(“mycollection”);
@@ -285,12 +281,12 @@ query.equalTo(“_id”, “dasds12dskm”);
 <a name="Query+notEqualTo"></a>
 ### .notEqualTo(field, value)
 
-Метод для добавления условия выборки: только документы для которых значение поля не равно значению в условии выборки.
+Method for retrieving all objects except for objects with the field value indicated in the condition.
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| field | `String` |                                            Mandatory | Имя поля, которому задается условие | "orderNumber"   |
-| value | `Object` | Mandatory | Значение для сравнения                   |  22 |
+| Parameter | Type     | Properties | Description                                        | Value example |
+|-----------|----------|------------|----------------------------------------------------|---------------|
+| field     | `String` | Mandatory  | Name of the field for which a condition is defined | "orderNumber" |
+| value     | `Object` | Mandatory  | Field value                                        | 22            |
 
 
 **Example** 
@@ -300,9 +296,6 @@ Query query = new Query(“mycollection”);
 query.notEqualTo(“orderNumber”, 22);
 //query.findDocuments(…);
 ```
-
-!!! note "Примечание"
-    Если вы пытаетесь задать данное условие для поля id документа, помните, что, поскольку id – первичный ключ для документа, вам нужно добавить “_” перед именем поля.
 
 ```Java
 Query query = new Query(“mycollection”);
@@ -315,13 +308,13 @@ query.equalTo(“_id”, “dasds12dskm”);
 <a name="Query+containedIn"></a>
 ### .containedIn(field, values)
 
-Метод для добавления условия выборки: только документы у которых значение поля совпадает с одним из значений заданного массива.
+Method for retrieving all objects whose field value contains the array elements specified in the query.
 
+| Parameter | Type             | Properties | Description                                        | Value example         |
+|-----------|------------------|------------|----------------------------------------------------|-----------------------|
+| field     | `String`         | Mandatory  | Name of the field for which a condition is defined | "orderNumbers"        |
+| value     | `List<тип поля>` | Mandatory  | Array of values                                    | see the example below |
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| field | `String` |                                            Mandatory | Имя поля, которому задается условие | "orderNumbers"   |
-| value | `List<тип поля>` | Mandatory |  Массив элементов                  |  см.пример ниже |
 
 **Example** 
 
@@ -340,12 +333,12 @@ Query query = new Query(“mycollection”).containedIn("number3", numbers);
 <a name="Query+containsAll"></a>
 ### .containsAll(field, values)
 
-Метод для добавления условия выборки:только документы у которых поле (типа массив) содержит все элементы заданного массива
+Method for retrieving all objects whose field value contains all array elements specified in the query.
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| field | `String` |                                            Mandatory | Имя поля, которому задается условие | "orderNumbers"   |
-| value | `List<тип поля>` | Mandatory |  Массив элементов                  |  см.пример ниже |
+| Parameter | Type             | Properties | Description                                        | Value example         |
+|-----------|------------------|------------|----------------------------------------------------|-----------------------|
+| field     | `String`         | Mandatory  | Name of the field for which a condition is defined | "orderNumbers"        |
+| value     | `List<тип поля>` | Mandatory  | Array of values                                    | see the example below |
 
 **Example** 
 
@@ -362,17 +355,15 @@ Query query = new Query(“mycollection”).containsAll("array1", containsAllNum
 
 <a name="Query+notContainedIn"></a>
 ### .notContainedIn(field, values)
-Метод для добавления условия выборки: только документы у которых
+Method for retrieving all objects whose field value 
 
-* значение поля не совпадает ни с одним из значений заданного массива.
-* значение поля не задано (not exist).
+* does not contain the array elements specified in the query 
+* does not exist
 
-
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| field | `String` |                                            Mandatory | Имя поля, которому задается условие | "orderNumbers"   |
-| value | `List<тип поля>` | Mandatory |  Массив элементов                  |  см.пример ниже |
-
+| Parameter | Type             | Properties | Description                                        | Value example         |
+|-----------|------------------|------------|----------------------------------------------------|-----------------------|
+| field     | `String`         | Mandatory  | Name of the field for which a condition is defined | "orderNumbers"        |
+| value     | `List<тип поля>` | Mandatory  | Array of values                                    | see the example below |
 
 **Example** 
 
@@ -390,12 +381,12 @@ Query query = new Query(“mycollection”).notContainedIn("orderNumbers", notCo
 
 <a name="Query+greaterThan"></a>
 ### .greaterThan(field, value)
-Метод для добавления условия выборки: только документы у которых значение поля больше указанного в value значения
+Method for retrieving all objects whose field value is greater than the number specified in the query.
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| field | `String` |                                            Mandatory | Имя поля, которому задается условие | "fieldname"   |
-| value | `Integer / Double / Date` | Mandatory |  Значение для сравнения                  |  22 |
+| Parameter | Type                      | Properties | Description                                        | Value example |
+|-----------|---------------------------|------------|----------------------------------------------------|---------------|
+| field     | `String`                  | Mandatory  | Name of the field for which a condition is defined | "fieldname"   |
+| value     | `Integer / Double / Date` | Mandatory  | Condition value                                    | 22            |
 
 **Example** 
 
@@ -407,12 +398,13 @@ Query query = new Query(“mycollection”).greaterThan("number", 22)
 
 <a name="Query+greaterThenOrEqualTo"></a>
 ### .greaterThenOrEqualTo(field, value)
-Метод для добавления условия выборки: только документы у которых значение поля больше или равно указанного в value значения
+Method for retrieving all objects whose field value is no less than the number specified in the query.
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| field | `String` |                                            Mandatory | Имя поля, которому задается условие | "fieldname"   |
-| value | `Integer / Double / Date` | Mandatory |  Значение для сравнения                  |  22 |
+| Parameter | Type                      | Properties | Description                                        | Value example |
+|-----------|---------------------------|------------|----------------------------------------------------|---------------|
+| field     | `String`                  | Mandatory  | Name of the field for which a condition is defined | "fieldname"   |
+| value     | `Integer / Double / Date` | Mandatory  | Condition value                                    | 22            |
+
 
 **Example** 
 
@@ -424,12 +416,12 @@ Query query = new Query(“mycollection”).greaterThenOrEqualTo ("number", 22)
 
 <a name="Query+lessThan"></a>
 ### .lessThan(field, value)
-Метод для добавления условия выборки: только документы у которых значение поля меньше указанного в value значения
+Method for retrieving all objects whose field value is less than the number specified in the query.
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| field | `String` |                                            Mandatory | Имя поля, которому задается условие | "fieldname"   |
-| value | `Integer / Double / Date` | Mandatory |  Значение для сравнения                  |  22 |
+| Parameter | Type                      | Properties | Description                                        | Value example |
+|-----------|---------------------------|------------|----------------------------------------------------|---------------|
+| field     | `String`                  | Mandatory  | Name of the field for which a condition is defined | "fieldname"   |
+| value     | `Integer / Double / Date` | Mandatory  | Condition value                                    | 22            |
 
 **Example** 
 
@@ -442,12 +434,12 @@ Query query = new Query(“mycollection”). lessThan("number", 22)
 
 <a name="Query+lessThanOrEqualTo"></a>
 ### .lessThanOrEqualTo(field, value)
-Метод для добавления условия выборки: только документы у которых значение поля меньше или равно указанного в value значения
+Method for retrieving all objects whose field value is no greater than the number specified in the query.
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| field | `String` |                                            Mandatory | Имя поля, которому задается условие | "fieldname"   |
-| value | `Integer / Double / Date` | Mandatory |  Значение для сравнения                  |  22 |
+| Parameter | Type                      | Properties | Description                                        | Value example |
+|-----------|---------------------------|------------|----------------------------------------------------|---------------|
+| field     | `String`                  | Mandatory  | Name of the field for which a condition is defined | "fieldname"   |
+| value     | `Integer / Double / Date` | Mandatory  | Condition value                                    | 22            |
 
 **Example** 
 
@@ -459,11 +451,11 @@ Query query = new Query(“mycollection”).lessThanOrEqualTo ("number", 22)
 
 <a name="Query+exists"></a>
 ### .exists(field)
-Метод для добавления условия выборки: только документы у которых задано значение поля, т.е поле существует и не является пустым.
+Method for retrieving all objects with an existing value of a defined field
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| field | `String` |                                            Mandatory | Имя поля, которому задается условие | "fieldname"   |
+| Parameter | Type     | Properties | Description                                        | Value example |
+|-----------|----------|------------|----------------------------------------------------|---------------|
+| field     | `String` | Mandatory  | Name of the field for which a condition is defined | "fieldname"   |
 
 **Example** 
 
@@ -475,11 +467,11 @@ Query query = new Query(“mycollection”).exists("phoneNumber")
 
 <a name="Query+doesNotExist"></a>
 ### .doesNotExist(field)
-Метод для добавления условия выборки: только документы у которых не задано значение поля, т.е поле не существует или является пустым.
+Method for retrieving all objects with a missing value in a defined field.
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| field | `String` |                                            Mandatory | Имя поля, которому задается условие | "fieldname"   |
+| Parameter | Type     | Properties | Description                                        | Value example |
+|-----------|----------|------------|----------------------------------------------------|---------------|
+| field     | `String` | Mandatory  | Name of the field for which a condition is defined | "fieldname"   |
 
 **Example** 
 
@@ -491,14 +483,14 @@ Query query = new Query(“mycollection”).doesNotExist("phoneNumber")
 
 <a name="Query+contains"></a>
 ### .contains(field, regEx, options)
-Метод для добавления условия выборки: только документы у которых значение поля соответствуют заданному регулярному выражению.
+Method for retrieving all objects with a value of a defined field that matches a defined regular expression.
 
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| field | `String` |                                            Mandatory | Имя поля, которому задается условие | "fieldname"   |
-| regEx | `String` |                                            Mandatory | Регулярное выражение | “aB”   |
-| options | `RegexOptions` |                                            НеMandatory | Опции регулярного выражения | см.пример ниже  |
+| Parameter | Type           | Properties | Description                                        | Value example         |
+|-----------|----------------|------------|----------------------------------------------------|-----------------------|
+| field     | `String`       | Mandatory  | Name of the field for which a condition is defined | "fieldname"           |
+| regEx     | `String`       | Mandatory  | Regular expression                                 | “aB”                  |
+| options   | `RegexOptions` | Optional   | Regular expression options                         | See the example below |
 
 **Example** 
 
@@ -513,16 +505,14 @@ Query query = new Query(“mycollection”).doesNotExist("phoneNumber")
 
 <a name="Query+startsWith"></a>
 ### .startsWith(field, regEx, options)
-Метод для добавления условия выборки: только документы у которых значение поля начинается с заданной строки
+Method for retrieving all objects with a value of a defined field starting from a specified string.
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| field | `String` |                                            Mandatory | Имя поля, которому задается условие | "fieldname"   |
-| regEx | `String` |                                            Mandatory | Строка с которой должно начинаться значение поля | “aB”   |
-| options | `RegexOptions` |                                            НеMandatory | Опции регулярного выражения | см.пример ниже  |
+| Parameter | Type           | Properties | Description                                        | Value example         |
+|-----------|----------------|------------|----------------------------------------------------|-----------------------|
+| field     | `String`       | Mandatory  | Name of the field for which a condition is defined | "fieldname"           |
+| regEx     | `String`       | Mandatory  | Regular expression                                 | “aB”                  |
+| options   | `RegexOptions` | Optional   | Regular expression options                         | See the example below |
 
-!!! note "Примечание"
-    Параметр options позволяет, к примеру, искать все документы начинающиеся с “aB” не зависимо от регистра, т.е искать документы, начинающиеся на ab, aB, Ab, AB.
 
 **Example** 
 
@@ -538,17 +528,15 @@ Query query = new Query(“mycollection”).doesNotExist("phoneNumber")
 
 <a name="Query+endsWith"></a>
 ### .endsWith(field, regEx, options)
-Метод для добавления условия выборки: только документы у которых значение поля заканчивается с заданной строки
+
+Method for retrieving all objects with a value of a defined field ending with a specified string.
 
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| field | `String` |  Mandatory | Имя поля, которому задается условие | "fieldname"   |
-| regEx | `String` |  Mandatory | Строка, на которую должно заканчиваться значение поля | “aaB”   |
-| options | `RegexOptions` |                                            НеMandatory | Опции регулярного выражения | см.пример ниже  |
-
-!!! note "Примечание"
-    Параметр options позволяет, к примеру, искать все документы начинающиеся с “aB” не зависимо от регистра, т.е искать документы, начинающиеся на ab, aB, Ab, AB.
+| Parameter | Type           | Properties | Description                                        | Value example         |
+|-----------|----------------|------------|----------------------------------------------------|-----------------------|
+| field     | `String`       | Mandatory  | Name of the field for which a condition is defined | "fieldname"           |
+| regEx     | `String`       | Mandatory  | Regular expression                                 | “aB”                  |
+| options   | `RegexOptions` | Optional   | Regular expression options                         | See the example below |
 
 **Example** 
 
@@ -556,19 +544,19 @@ Query query = new Query(“mycollection”).doesNotExist("phoneNumber")
  RegexOptions regexOptions = new RegexOptions();
  regexOptions.setRegexCaseInsenssitive();
 
- Query query = new Query(“mycollection”).startsWith ("exampleField", "a", regexOptions)
+ Query query = new Query(“mycollection”).endsWith("exampleField", "a", regexOptions)
  //query.findDocuments(…);
 ```
 ---------------------------------------------------------------------------------------------
 
 <a name="Query+and"></a>
 ### .and(field, query)
-Метод логического умножения нескольких условий выборки по одному полю
+Method for logical multiplication of several samplings conditions
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| field | `String` | Mandatory | Имя поля, которому задается условие | "fieldname"   |
-| query | `Query` | Mandatory |  Объект класса Query, содержащий данные для выборки                   |  см.пример ниже |
+| Parameter | Type     | Properties | Description                                         | Value example         |
+|-----------|----------|------------|-----------------------------------------------------|-----------------------|
+| field     | `String` | Mandatory  | Name of the field for which a condition is defined  | "fieldname"           |
+| query     | `Query`  | Mandatory  | Query that is included in the conjunction operation | See the example below |
 
 **Example** 
 
@@ -583,12 +571,12 @@ query1.and("number3", query2);
 
 <a name="Query+or"></a>
 ### .or(field, query)
-Метод логического сложения нескольких условий выборки по одному полю
+Method for logical addition of several samplings conditions
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| field | `String` | Mandatory | Имя поля, которому задается условие | "fieldname"   |
-| query | `Query` | Mandatory |  Объект класса Query, содержащий данные для выборки                   |  см.пример ниже |
+| Parameter | Type     | Properties | Description                                         | Value example         |
+|-----------|----------|------------|-----------------------------------------------------|-----------------------|
+| field     | `String` | Mandatory  | Name of the field for which a condition is defined  | "fieldname"           |
+| query     | `Query`  | Mandatory  | Query that is included in the conjunction operation | See the example below |
 
 **Example** 
 
@@ -603,11 +591,11 @@ query1.or("number3", query2);
 
 <a name="Query+raw"></a>
 ### .raw(json)
-Метод для задания условий выборки в формате json.
+Method for defining sampling conditions in the form of a JSON structure to create a DB query in MongoDB language.
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| json | `String` |  Mandatory | Условия выборки в формате json | "{\"_id\": {\"$eq\": \"W9vrMS9SuW\"}}"  |
+| Parameter | Type     | Properties | Description                                         | Value example                          |
+|-----------|----------|------------|-----------------------------------------------------|----------------------------------------|
+| json      | `String` | Mandatory  | Applied filter in the MongoDB query language format | "{\"_id\": {\"$eq\": \"W9vrMS9SuW\"}}" |
 
 **Example** 
 
@@ -620,7 +608,7 @@ query1.or("number3", query2);
 
 <a name="Query+reset"></a>
 ### .reset()
-Метод для очистки условия выборки.
+Method for resetting the sampling conditions
 
 **Example** 
 
@@ -635,11 +623,11 @@ query.equalTo(“_id”, “ds54522sd”);
 
 <a name="Query+ascending"></a>
 ### .ascending(field)
-Метод для сортировки данных указанного поля в порядке возрастания перед совершением выборки.
+Method for sorting a specified field data in ascending order before sampling.
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| field | `String` | Mandatory | Имя поля, которому задается условие | "fieldname"   |
+| Parameter | Type     | Properties | Description | Value example |
+|-----------|----------|------------|-------------|---------------|
+| field     | `String` | Mandatory  | Field name  | "fieldname"   |
 
 **Example** 
 
@@ -652,11 +640,11 @@ query.ascending("itemId");
 
 <a name="Query+descending"></a>
 ### .descending(field)
-Метод для сортировки данных указанного поля в порядке убывания перед совершением выборки.
+Method for sorting a specified field data in descending order before sampling.
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| field | `String` | Mandatory | Имя поля, которому задается условие | "fieldname"   |
+| Parameter | Type     | Properties | Description | Value example |
+|-----------|----------|------------|-------------|---------------|
+| field     | `String` | Mandatory  | Field name  | "fieldname"   |
 
 **Example** 
 
@@ -669,11 +657,11 @@ query.descending("itemId");
 
 <a name="Query+setFieldsForSearch"></a>
 ### .setFieldsForSearch(fields)
-Метод для задания списка возвращаемых полей.
+Method for specifying a list of returned fields.
 
-| Parameter | Type | Properties | Description | Value example |
-|-----------|------|------------|-------------|---------------|
-| fields | `List<String>` | Mandatory | Имена полей | см.пример ниже   |
+| Parameter | Type           | Properties | Description  | Value example         |
+|-----------|----------------|------------|--------------|-----------------------|
+| fields    | `List<String>` | Mandatory  | Fields names | See the example below |
 
 **Example** 
 
@@ -690,7 +678,7 @@ Query query = new Query(“mycollection”).setFieldsForSearch(fieldNames);
 
 <a name="Query+getQueryInfo"></a>
 ### .getQueryInfo()
-Метод для получения информации о условиях выборки
+Method for retrieving query conditions info
 
 **Example** 
 

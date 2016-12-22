@@ -2,7 +2,7 @@
 
 ### WebSocket
 
-Для использования WebSocket в вашем проекте, вы можете воспользоваться библиотекой <https://github.com/codebutler/android-websockets> (или аналогичной), используя следующую схему url при инициализации WebSocket:
+To use WebSocket in your project, you can use the <https://github.com/codebutler/android-websockets> library (or similar) with the following url scheme when initializing WebSocket:
 
 ```
 wss://wss.scorocode.ru/{appID}/{wsKey}/{chanName}
@@ -10,17 +10,17 @@ wss://wss.scorocode.ru/{appID}/{wsKey}/{chanName}
 
 | Parameter | Type | Properties | Description | Value example |
 |-----------|------|------------|-------------|---------------|
-|appID  | String | Обязательный  |  Ключ appId приложения   |a3d04e75e157b2f7ae20c2fce02f63d6 |
-|wsKey  | String | Обязательный   | Ключ websocketKey  приложения  | a3d04e75e157b2f7ae20c2fce02f63d6 |
-|chanName  |  String | Обязательный  |  Произвольное имя канала | chat_channel |
+| appID  | String | Mandatory  |  Application identifier|a3d04e75e157b2f7ae20c2fce02f63d6 |
+| wsKey  | String | Mandatory   | Application websocket key  | a3d04e75e157b2f7ae20c2fce02f63d6 |
+| chanName  |  String | Mandatory  | Arbitrary channel name | chat_channel |
 
-**Пример инициализации:**
+**Initialisation example**
 
 ```Java
 WebSocketClient client = new WebSocketClient(URI.create("wss://wss.scorocode.ru/a3d04e75e157b2f7ae20c2fce02f63d6/a3d04e75e157b2f7ae20c2fce02f63d6/chat_channel"), handler);
 ```
 
-**Пример использования:**
+**Usage example**
 
 ```Java
 List<BasicNameValuePair> extraHeaders = Arrays.asList(
@@ -56,7 +56,7 @@ WebSocketClient client = new WebSocketClient(URI.create("wss://wss.scorocode.ru/
 
 client.connect();
 
-// Позже…
+// later...
 
 client.send("hello!");
 client.send(new byte[] { 0xDE, 0xAD, 0xBE, 0xEF });

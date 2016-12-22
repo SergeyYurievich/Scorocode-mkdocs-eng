@@ -1,9 +1,7 @@
 <a name="Script"></a>
 
 ## Script
-Класс для работы с серверными скриптами.
-
-**Содержание**
+Class for handling server-side scripts
 
 * [Script](#Script)
     * [new Script()](#Script_new)
@@ -14,7 +12,7 @@
 
 <a name="Script_new"></a>
 ### new Script()
-Конструктор Script
+Script constructor
 
 ```Java
 Script script = new Script();
@@ -22,17 +20,16 @@ Script script = new Script();
 ----------------------------------------------------------------------------------------------
 <a name="Script+runScript1"></a>
 ### .runScript(scriptId, dataPoolForScript, callback)
-Метод для запуска серверного скрипта 
+Server-side script running method
 
 | Parameter | Type | Properties | Description | Value example |
 |-----------|------|------------|-------------|---------------|
-| scriptId	        | `String`	            | Обязательный	 | Идентификатор скрипта	                             | "57e1503b48e5f54441189790" |
-| dataPoolForScript	| `Object`	            | Необязательный | Объект, содержащий параметры скрипта для выполнени    | см.пример ниже |
-| callback	        | `CallbackRunScript` 	| Обязательный	 | Callback for the request being executed.	| см.пример ниже |
+| scriptId	        | `String`	            | Mandatory	 | Server-side script identifier | "57e1503b48e5f54441189790" |
+| dataPoolForScript	| `Object`	            | Optional | Object with the data that will be passed to the server-side script | See the example below |
+| callback	        | `CallbackRunScript` 	| Mandatory	 | Callback for the request being executed.	| See the example below |
 
-!!! note "Примечание"
-    Объект `dataPoolForScript` будет сериализован в JSON при помощи парсера Google Gson. Если у вас возникли проблемы при передаче параметров в скрипт - обратитесь к официальной документации <https://github.com/google/gson>
-
+!!! note "Note"
+    Object `dataPoolForScript` will be serialised to JSON by the Google Gson parser. See <https://github.com/google/gson> for assistance.
 
 **Example**
 ```Java
@@ -60,15 +57,15 @@ script.runScript("57e1503b48e5f54441189790", dataPool, new CallbackRunScript() {
 ----------------------------------------------------------------------------------------------
 <a name="Script+runScript2"></a>
 ### .runScript(scriptId, callback)
-Метод для запуска серверного скрипта 
+Server-side script running method
 
 | Parameter | Type | Properties | Description | Value example |
 |-----------|------|------------|-------------|---------------|
-| scriptId	        | `String`	            | Обязательный	 | Идентификатор скрипта	                             | "57e1503b48e5f54441189790" |
-| callback	        | `CallbackRunScript` 	| Обязательный	 | Callback for the request being executed.	| см.пример ниже |
+| scriptId          | `String`              | Mandatory  | Server-side script identifier | "57e1503b48e5f54441189790" |
+| callback          | `CallbackRunScript`   | Mandatory  | Callback for the request being executed. | See the example below |
 
-!!! note "Примечание"
-    Объект `dataPoolForScript` будет сериализован в JSON при помощи парсера Google Gson. Если у вас возникли проблемы при передаче параметров в скрипт - обратитесь к официальной документации <https://github.com/google/gson>
+!!! note "Note"
+    Object `dataPoolForScript` will be serialised to JSON by the Google Gson parser. See <https://github.com/google/gson> for assistance.
 
 **Example**
 ```Java
