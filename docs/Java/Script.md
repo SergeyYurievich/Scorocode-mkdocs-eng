@@ -24,17 +24,17 @@ Script script = new Script();
 ### .runScript(scriptId, dataPoolForScript, callback)
 Метод для запуска серверного скрипта 
 
-| Параметр  | Тип                              | Свойства | Описание                         | Пример значения |
-| --------- | -------------------------------- | -------- | -------------------------------- | --------------- |
+| Parameter | Type | Properties | Description | Value example |
+|-----------|------|------------|-------------|---------------|
 | scriptId	        | `String`	            | Обязательный	 | Идентификатор скрипта	                             | "57e1503b48e5f54441189790" |
 | dataPoolForScript	| `Object`	            | Необязательный | Объект, содержащий параметры скрипта для выполнени    | см.пример ниже |
-| callback	        | `CallbackRunScript` 	| Обязательный	 | Callback, который будет вызван после выполнения запроса.	| см.пример ниже |
+| callback	        | `CallbackRunScript` 	| Обязательный	 | Callback for the request being executed.	| см.пример ниже |
 
 !!! note "Примечание"
     Объект `dataPoolForScript` будет сериализован в JSON при помощи парсера Google Gson. Если у вас возникли проблемы при передаче параметров в скрипт - обратитесь к официальной документации <https://github.com/google/gson>
 
 
-**Пример**
+**Example**
 ```Java
 Script script = new Script();
 HashMap<String, Object> dataPool = new HashMap<>();
@@ -62,15 +62,15 @@ script.runScript("57e1503b48e5f54441189790", dataPool, new CallbackRunScript() {
 ### .runScript(scriptId, callback)
 Метод для запуска серверного скрипта 
 
-| Параметр  | Тип                              | Свойства | Описание                         | Пример значения |
-| --------- | -------------------------------- | -------- | -------------------------------- | --------------- |
+| Parameter | Type | Properties | Description | Value example |
+|-----------|------|------------|-------------|---------------|
 | scriptId	        | `String`	            | Обязательный	 | Идентификатор скрипта	                             | "57e1503b48e5f54441189790" |
-| callback	        | `CallbackRunScript` 	| Обязательный	 | Callback, который будет вызван после выполнения запроса.	| см.пример ниже |
+| callback	        | `CallbackRunScript` 	| Обязательный	 | Callback for the request being executed.	| см.пример ниже |
 
 !!! note "Примечание"
     Объект `dataPoolForScript` будет сериализован в JSON при помощи парсера Google Gson. Если у вас возникли проблемы при передаче параметров в скрипт - обратитесь к официальной документации <https://github.com/google/gson>
 
-**Пример**
+**Example**
 ```Java
 Script script = new Script();
 script.runScript("57e1503b48e5f54441189790", new CallbackRunScript() {

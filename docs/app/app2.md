@@ -44,7 +44,7 @@ ACL fields can only contain user identifier values from the users collection and
 
 To add a field to a document, click the Add field link.
 
-![Data](../img/dataadfield.png)
+![Data](../img/dataddfield.png)
 
 Enter the field name (Latin letters and digits) and choose the field type from the following list:
 

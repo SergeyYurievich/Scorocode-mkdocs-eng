@@ -1,9 +1,6 @@
 <a name="Message"></a>
 
-### Message
-Message
-
-**Содержание**
+Class for message sending
 
 * [Message](#Message)
     * [new Message(from, subject, text)](#Message_new)
@@ -18,94 +15,33 @@ Message
 
 <a name="Message_new"></a>
 
-Конструктор Message
+Message constructor
 
-| Параметр | Тип | Свойства | Описание | Пример значения |
-| --- | --- | --- | --- | --- |
-| from    | `String` |  Необязательный     | Отправитель сообщения | "Any name" | 
-| subject  | `String`|   Необязательный    | Тема письма                                    | "С днем рождения"            |
-| text     | `String`|   Необязательный    | Текст письма                                   | "Сегодня 18 июня, и это день рождения Мюриэл! Мюриэл сейчас 20. С днём рождения, Мюриэл!" |
+| Parameter | Type | Properties | Description | Value example |
+|-----------|------|------------|-------------|---------------|
+| from    | `String` |  Optional     | Message sender | "Any name" | 
+| text    | `String` |  Optional     | Message text   | "Any text" |
 
-```Java
-MessageEmail messageEmail = new MessageEmail("Any name", "Any subject", "Any text");
-```
-
-----------------------------------------------------------------------------------------------
-
-<a name="Message+sendEmail1"></a>
-### .sendEmail(messageEmail, query, callback)
-Метод для отправки email сообщения пользователю или группе пользователей
-
-| Параметр     | Тип               | Свойства          | Описание                                                                                                | Пример значения |
-| ------------ | ----------------- | ----------------- | ------------------------------------------------------------------------------------------------------- | --------------- |
-| messageEmail |  `MessageEmail`     |  Обязательный     |  Объект, содержащий сообщение                                                                           |  см.пример ниже |
-| query        | `Query`             |  Необязательный   |  Объект, содержащий условия по которым будет выбран пользователь или группа пользователей для отправки. |  см.пример ниже |
-| callback     | `CallbackSendEmail` |  Обязательный     |   Callback, который будет вызван после выполнения запроса.                                              |  см.пример ниже |
-
+**Example**
 
 ```Java
-MessageEmail messageEmail = new MessageEmail("Any name", "Any subject", "Any text");
-
-Query query = new Query("USERS");
-query.equalTo("_id", "XukL1FrVoL");
-
-Message message = new Message();
-message.sendEmail(messageEmail, query, new CallbackSendEmail() {
-            @Override
-            public void onEmailSend() {
-                //email send
-            }
-
-            @Override
-            public void onEmailSendFailed(String errorCode, String errorMessage) {
-                //error during sending
-            }
-        });
+MessagePush messagePush = new MessagePush("Any text", null);
 ```
-
-----------------------------------------------------------------------------------------------
-
-<a name="Message+sendEmail2"></a>
-### .sendEmail(messageEmail, callback)
-Метод для отправки email сообщения пользователю или группе пользователей
-
-| Параметр     | Тип               | Свойства          | Описание                                                                                                | Пример значения |
-| ------------ | ----------------- | ----------------- | ------------------------------------------------------------------------------------------------------- | --------------- |
-| messageEmail |  `MessageEmail`      |  Обязательный     |  Объект, содержащий сообщение                                                                           |  см.пример ниже |
-| callback     | `CallbackSendEmail` |  Обязательный     |   Callback, который будет вызван после выполнения запроса.                                              |  см.пример ниже |
-
-
-```Java
-MessageEmail messageEmail = new MessageEmail("Any name", "Any subject", "Any text");
- 
-Message message = new Message();
-message.sendEmail(messageEmail, new CallbackSendEmail() {
-            @Override
-            public void onEmailSend() {
-                //email send
-            }
-
-            @Override
-            public void onEmailSendFailed(String errorCode, String errorMessage) {
-                //error during sending
-            }
-        });
-
-```
-
 
 ----------------------------------------------------------------------------------------------
 
 <a name="Message+sendPush1"></a>
 ### .sendPush(messagePush, query, callback)
-Метод для отправки push сообщения пользователю или группе пользователей
 
-| Параметр     | Тип               | Свойства          | Описание                                                                                                | Пример значения |
-| ------------ | ----------------- | ----------------- | ------------------------------------------------------------------------------------------------------- | --------------- |
-| messagePush |  `MessagePush`     |  Обязательный     |  Объект, содержащий сообщение                                                                           |  см.пример ниже |
-| query        | `Query`             |  Необязательный   |  Объект, содержащий условия по которым будет выбран пользователь или группа пользователей для отправки. |  см.пример ниже |
-| callback     | `CallbackSendPush` |  Обязательный     |   Callback, который будет вызван после выполнения запроса.                                              |  см.пример ниже |
+Push sending method
 
+| Parameter   | Type               | Properties | Description                                 | Value example |
+|-------------|--------------------|------------|---------------------------------------------|---------------|
+| messagePush | `MessagePush`      | Mandatory  | Object, that contains message               |               |
+| query       | `Query`            | Optional   | Users/Devices collection query for sampling |               |
+| callback    | `CallbackSendPush` | Mandatory  | Callback for the request being executed.    |               |
+
+**Example**
 
 ```Java
 MessagePush messagePush = new MessagePush("Any text", null);
@@ -131,13 +67,15 @@ message.sendPush(messagePush, query, new CallbackSendPush() {
 
 <a name="Message+sendPush2"></a>
 ### .sendPush(messagePush, callback)
-Метод для отправки push сообщения пользователю или группе пользователей
 
-| Параметр     | Тип               | Свойства          | Описание                                                                                                | Пример значения |
-| ------------ | ----------------- | ----------------- | ------------------------------------------------------------------------------------------------------- | --------------- |
-| messagePush |  `MessagePush`     |  Обязательный     |  Объект, содержащий сообщение                                                                           |  см.пример ниже |
-| callback     | `CallbackSendPush` |  Обязательный     |   Callback, который будет вызван после выполнения запроса.                                              |  см.пример ниже |
+Push sending method
 
+| Parameter   | Type               | Properties | Description                                | Value example |
+|-------------|--------------------|------------|--------------------------------------------|---------------|
+| messagePush | `MessagePush`      | Mandatory  | Object, that contains message              |               |
+| callback    | `CallbackSendPush` | Mandatory  | Callback for the request being executed.   |               |
+
+**Example**
 
 ```Java
 MessagePush messagePush = new MessagePush("Any text", null);
@@ -163,14 +101,16 @@ message.sendPush(messagePush, query, new () {
 
 <a name="Message+sendSms1"></a>
 ### .sendSms(messageSms, query, callback)
-Метод для отправки sms сообщения пользователю или группе пользователей
 
-| Параметр     | Тип               | Свойства          | Описание                                                                                                | Пример значения |
-| ------------ | ----------------- | ----------------- | ------------------------------------------------------------------------------------------------------- | --------------- |
-| messageSms   |  `messageSms`     |  Обязательный     |  Объект, содержащий сообщение                                                                           |  см.пример ниже |
-| query        | `Query`             |  Необязательный   |  Объект, содержащий условия по которым будет выбран пользователь или группа пользователей для отправки. |  см.пример ниже |
-| callback     | `CallbackSendSms` |  Обязательный     |   Callback, который будет вызван после выполнения запроса.                                              |  см.пример ниже |
+SMS sending method
 
+| Parameter | Type | Properties | Description | Value example |
+|-----------|------|------------|-------------|---------------|
+| messageSms   |  `messageSms`     |  Mandatory     |  Object, that contains message                  |   |
+| query        | `Query`             |  Optional   |  Users collection query for sampling.            |   |
+| callback     | `CallbackSendSms` |  Mandatory     |   Callback for the request being executed.      |   |
+
+**Example**
 
 ```Java
 MessageSms messageSms = new MessageSms("Hello world");
@@ -197,13 +137,15 @@ message.sendSms(messageSms, query, new CallbackSendSms() {
 
 <a name="Message+sendSms2"></a>
 ### .sendSms(messageSms, callback)
-Метод для отправки sms сообщения пользователю или группе пользователей
 
-| Параметр     | Тип               | Свойства          | Описание                                                                                                | Пример значения |
-| ------------ | ----------------- | ----------------- | ------------------------------------------------------------------------------------------------------- | --------------- |
-| messageSms   |  `messageSms`     |  Обязательный     |  Объект, содержащий сообщение                                                                           |  см.пример ниже |
-| callback     | `CallbackSendSms` |  Обязательный     |   Callback, который будет вызван после выполнения запроса.                                              |  см.пример ниже |
+SMS sending method
 
+| Parameter | Type | Properties | Description | Value example |
+|-----------|------|------------|-------------|---------------|
+| messageSms   |  `messageSms`     |  Mandatory     |  Object, that contains message                |   |
+| callback     | `CallbackSendSms` |  Mandatory     |   Callback for the request being executed.    |   |
+
+**Example**
 
 ```Java
 MessageSms messageSms = new MessageSms("Hello world");

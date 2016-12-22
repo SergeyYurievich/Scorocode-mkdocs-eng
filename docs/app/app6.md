@@ -93,7 +93,7 @@ Enter data in the GCM Sender ID and API key fields that is required to send PUSH
 
 Use this configuration section to define a user session duration.
 
-![Настройки приложения](../img/appsettingsusers.png)
+![Application settings](../img/appsettingsusers.png)
 
 Click the Application user authentication link. On the page that opens, enter the duration in hours of the API session after the user logs into the application. By default, the duration of a user session is 72 hours.
 

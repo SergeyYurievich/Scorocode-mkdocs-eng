@@ -1,10 +1,5 @@
 <a name="Document"></a>
 
-## Document
-Класс для работы с документами коллекций.
-
-**Содержание**
-
 * [Document](#Document)
     * [new Document(collection_name)](#new_Scorocode.Document_new)
     * [.setField(field, value)](#Document+setField)
@@ -22,13 +17,14 @@
 
 ### new Document(collection_name)
 
-Инициализация экземпляра класса Document
+Document initialisation
 
-| Параметр | Тип | Свойства | Описание | Пример значения |
-| --- | --- | --- | --- | --- |
-| collection_name | `String` | Обязательное | имя коллекции в которой будет идти работа с документом | "Things" |
+| Parameter | Type | Properties | Description | Value example |
+|-----------|------|------------|-------------|---------------|
+| collection_name | `String` | Обязательное | Name of the collection where the document is added  | "Things" |
 
-**Пример** 
+**Example** 
+
 ```Java
 ScorocodeSdk.initWith("db8a1b41b8543397a798a181d9891b4c", "563452bbc611d8106d5da767365897de", "28f06b89b62165c33de55265166d8781", null, null, null);
 
@@ -40,14 +36,15 @@ Document exampleItem = new Document("Items");
 
 ### .setField(field, value)
 
-Метод для передачи данных полю документа.
+Method for setting data to document's field
 
-| Параметр | Тип | Свойства | Описание | Пример значения |
-| --- | --- | --- | --- | --- |
-| field | `String` | Обязательный | Название поля | "testcoll" |
-| value | `Object` | Обязательный  | Данные поля | "huNr3L7QDh" |
+| Parameter | Type | Properties | Description | Value example |
+|-----------|------|------------|-------------|---------------|
+| field | `String` | Mandatory | Field name | "testcoll" |
+| value | `Object` | Mandatory  | Field value | "huNr3L7QDh" |
 
-**Пример** 
+**Example** 
+
 ```Java
 ScorocodeSdk.initWith("db8a1b41b8543397a798a181d9891b4c", "563452bbc611d8106d5da767365897de", "28f06b89b62165c33de55265166d8781", null, null, null);
 
@@ -59,15 +56,15 @@ order.setField(“orderId”, “Ku128A439ads”);
 <a name="Document+saveDocument"></a>
 ### .saveDocument(callback)
 
-Метод сохраняет документ в хранилище данных приложения или обновляет уже имеющийся там документ
+The method saves the document in the database or updates an object that already exists there
 
-| Параметр | Тип                     | Свойства | Описание                         | Пример значения |
-| -------- | ----------------------- | -------- | -------------------------------- | --------------- |
-| callback | `CallbackDocumentSaved` | Обязательный | Callback, который будет вызван после выполнения запроса. |                 | 
+| Parameter | Type | Properties | Description | Value example |
+|-----------|------|------------|-------------|---------------|
+| callback | `CallbackDocumentSaved` | Mandatory | Callback for the request being executed. |   | 
 
-**Примеры** 
-
-Пример создания нового документа коллекции
+**Example** 
+ 
+Creating new document 
 
 ```Java
 ScorocodeSdk.initWith("db8a1b41b8543397a798a181d9891b4c", "563452bbc611d8106d5da767365897de", "28f06b89b62165c33de55265166d8781", null, null, null);
@@ -92,7 +89,7 @@ newDocument.saveDocument(new CallbackDocumentSaved() {
         });
 ```
 
-Пример обновления уже имеющегося в БД документа коллекции
+Updating the existing document
 
 ```Java
  final Document document = new Document(“orderInfo”);
@@ -127,21 +124,20 @@ newDocument.saveDocument(new CallbackDocumentSaved() {
 <a name="Document+getDocumentById"></a>
 ### .getDocumentById(documentId, callback)
 
-Метод для для получения документа коллекции из БД по его id. 
+Method for retrieving a collection object from DB by its _id.
 
+| Parameter | Type | Properties | Description | Value example |
+|-----------|------|------------|-------------|---------------|
+| documentId | `String` | Mandatory | Object identifier                                    | "nV0p50CDKq" | 
+| callback | `CallbackGetDocumentById` | Mandatory | Callback for the request being executed. |              | 
 
-| Параметр | Тип                     | Свойства     | Описание                                                 | Пример значения |
-| -------- | ----------------------- | ------------ | -------------------------------------------------------- | --------------- |
-| documentId | `String`   | Обязательный | Значение поля id документа коллекции                     | "nV0p50CDKq"    | 
-| callback | `CallbackFindDocument` | Обязательный | Callback, который будет вызван после выполнения запроса. |                 | 
-
-**Пример** 
+**Example** 
 
 ```Java
 ScorocodeSdk.initWith("db8a1b41b8543397a798a181d9891b4c", "563452bbc611d8106d5da767365897de", "28f06b89b62165c33de55265166d8781", null, null, null);
 
 final Document document = new Document("ordersCollection");
-document.getDocumentById("nV0p50CDKq", new CallbackFindDocument() {
+document.getDocumentById("nV0p50CDKq", new CallbackGetDocumentById() {
             @Override
             public void onDocumentFound(DocumentInfo documentInfo) {
                 //document found
@@ -159,13 +155,14 @@ document.getDocumentById("nV0p50CDKq", new CallbackFindDocument() {
 <a name="Document+getField"></a>
 ### .getField(field)
 
-Метод для получения данных указанного поля документа.
+Method for retrieving data from a specified document field.
 
-| Параметр | Тип                     | Свойства     | Описание                                                 | Пример значения |
-| -------- | ----------------------- | ------------ | -------------------------------------------------------- | --------------- |
-| field | `String`   | Обязательный | Имя поля документа                   | "name"    | 
+| Parameter | Type | Properties | Description | Value example |
+|-----------|------|------------|-------------|---------------|
+| field | `String`   | Mandatory | Field name     | "name"    | 
 
-**Пример** 
+**Example** 
+
 ```Java
 final Document document = new Document(“ordersCollection”);
 String orderId = document.getField(“orderId”);
@@ -174,22 +171,23 @@ String orderId = document.getField(“orderId”);
 <a name="Document+updateDocument"></a>
 ### .updateDocument()
 
-Метод для обновления документа при помощи класса Update (см. документацию к классу Update)
+Method for updating the document using Update class.
 
 ----------------------------------------------------------------------------------------------
 <a name="Document+uploadFile"></a>
 ### .uploadFile(fieldName, fileName, contentToUploadInBase64, callback)
 
-Метод для загрузки файла в поле документа.
+File upload method
 
-| Параметр | Тип                     | Свойства     | Описание                                                 | Пример значения |
-| -------- | ----------------------- | ------------ | -------------------------------------------------------- | --------------- |
-| fieldName| `String`     | Обязательный | Имя поля документа типа File                    | "attachment"    | 
-| fileName | `String`   | Обязательный | Имя файла с раширением                     | "file.txt"    | 
-| contentToUploadInBase64 | `String`   | Обязательный | Контент файла в формате base64                     | "VEhJUyBJUyBGSUxFLUUtRS1FLUUtRS1FIQ=="    | 
-| callback | `CallbackUploadFile` | Обязательный | Callback, который будет вызван после выполнения запроса. |                 | 
+| Parameter | Type | Properties | Description | Value example |
+|-----------|------|------------|-------------|---------------|
+| fieldName| `String`   | Mandatory | Field name                               | "attachment"    | 
+| fileName | `String`   | Mandatory | Filename with extension                     | "file.txt"    | 
+| contentToUploadInBase64 | `String`| Mandatory | File content in base64 encoded format   | "VEhJUyBJUyBGSUxFLUUtRS1FLUUtRS1FIQ=="    | 
+| callback | `CallbackUploadFile` | Mandatory | Callback for the request being executed.  |                 | 
 
-**Пример** 
+**Example** 
+
 ```Java
 final Document document = new Document(“ordersCollection”);
 document.getDocumentById("nV0p50CDKq", new CallbackFindDocument() {
@@ -225,14 +223,15 @@ document.getDocumentById("nV0p50CDKq", new CallbackFindDocument() {
 <a name="Document+getFileLink"></a>
 ### .getFileLink(fieldName, fileName)
 
-Метод для получения ссылки на файл.
+Method for retreiving file link
 
-| Параметр | Тип                     | Свойства     | Описание                                                 | Пример значения |
-| -------- | ----------------------- | ------------ | -------------------------------------------------------- | --------------- |
-| fieldName| `String`     | Обязательный | Имя поля документа типа File                    | "attachment"    | 
-| fileName | `String`   | Обязательный | Имя файла с раширением                     | "file.txt"    | 
+| Parameter | Type | Properties | Description | Value example |
+|-----------|------|------------|-------------|---------------|
+| fieldName| `String`     | Mandatory | Field name         | "attachment"    | 
+| fileName | `String`   | Mandatory | Filename with extension| "file.txt"    | 
 
-**Пример** 
+**Example** 
+
 ```Java
 final Document documentWithFile = new Document(“ordersCollection”);
 documentWithFile.getDocumentById("nV0p50CDKq", new CallbackFindDocument() {
@@ -254,15 +253,16 @@ documentWithFile.getDocumentById("nV0p50CDKq", new CallbackFindDocument() {
 <a name="Document+removeFile"></a>
 ### .removeFile(fieldName, fileName, callback)
 
-Метод для удаления файла из поля документа
+Method for removing the file
 
-| Параметр | Тип                     | Свойства     | Описание                                                 | Пример значения |
-| -------- | ----------------------- | ------------ | -------------------------------------------------------- | --------------- |
-| fieldName| `String`     | Обязательный | Имя поля документа типа File                    | "attachment"    | 
-| fileName | `String`   | Обязательный | Имя файла с раширением                     | "file.txt"    | 
-| callback | `CallbackDeleteFile` | Обязательный | Callback, который будет вызван после выполнения запроса. |                 | 
+| Parameter | Type | Properties | Description | Value example |
+|-----------|------|------------|-------------|---------------|
+| fieldName| `String`     | Mandatory | Collection field name | "attachment"    | 
+| fileName | `String`   | Mandatory | Filename with extension | "file.txt"      | 
+| callback | `CallbackDeleteFile` | Mandatory | Callback for the request being executed. |  | 
 
-**Пример** 
+**Example** 
+
 ```Java
 final Document document = new Document(“ordersCollection”);
 document.getDocumentById("nV0p50CDKq", new CallbackFindDocument() {
@@ -297,13 +297,14 @@ document.getDocumentById("nV0p50CDKq", new CallbackFindDocument() {
 <a name="Document+removeDocument"></a>
 ### .removeDocument(callback)
 
-Метод для удаления документа из коллекции
+Method for removing the selected document
 
-| Параметр | Тип                     | Свойства     | Описание                                                 | Пример значения |
-| -------- | ----------------------- | ------------ | -------------------------------------------------------- | --------------- |
-| callback | `CallbackRemoveDocument` | Обязательный | Callback, который будет вызван после выполнения запроса. |                 | 
+| Parameter | Type | Properties | Description | Value example |
+|-----------|------|------------|-------------|---------------|
+| callback | `CallbackRemoveDocument` | Mandatory | Callback for the request being executed. |                 | 
 
-**Пример** 
+**Example** 
+
 ```Java
 final Document document = new Document(“ordersCollection”);
 document.getDocumentById("7BOlVr1Acp", new CallbackFindDocument() {

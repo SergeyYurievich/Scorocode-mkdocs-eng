@@ -8,8 +8,8 @@
 wss://wss.scorocode.ru/{appID}/{wsKey}/{chanName}
 ```
 
-| Параметр  | Тип                              | Свойства | Описание                         | Пример значения |
-| --------- | -------------------------------- | -------- | -------------------------------- | --------------- |
+| Parameter | Type | Properties | Description | Value example |
+|-----------|------|------------|-------------|---------------|
 |appID  | String | Обязательный  |  Ключ appId приложения   |a3d04e75e157b2f7ae20c2fce02f63d6 |
 |wsKey  | String | Обязательный   | Ключ websocketKey  приложения  | a3d04e75e157b2f7ae20c2fce02f63d6 |
 |chanName  |  String | Обязательный  |  Произвольное имя канала | chat_channel |

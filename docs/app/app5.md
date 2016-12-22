@@ -1,4 +1,4 @@
-## Общая информация
+## General info
 
 The server-side code is Java scripts executed on a server using the Google V8 engine. The developed server code is executed in accordance with a schedule (plan) or only once when called using the API method. To create a new script, click the Create button.
 

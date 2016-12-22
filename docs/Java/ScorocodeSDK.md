@@ -16,8 +16,8 @@
 
 **Тип**: Метод `[ScorocodeSDK](#ScorocodeSDK)`  
 
-| Параметр | Тип | Свойства | Описание | Пример знаычения |
-| --- | --- | --- | --- | --- |
+| Parameter | Type | Properties | Description | Value example |
+|-----------|------|------------|-------------|---------------|
 | applicationId | `String` | Обязательный | Идентификатор приложения | "db8a1b41b8543397a798a181d9891b4c" |
 | clientKey  | `String` | Обязательный | Клиентский ключ приложения (Android Key ) | "563452bbc611d8106d5da767365897de" |
 | masterKey  | `String` | Необязательный | Мастер ключ приложения | "28f06b89b62165c33de55265166d8781"  |
@@ -33,7 +33,7 @@
     - ClientKey соответствует ключ с именем “android”;
 
 
-**Пример**  
+**Example**  
 
 ```Java
 ScorocodeSdk.initWith("db8a1b41b8543397a798a181d9891b4c", "563452bbc611d8106d5da767365897de", "28f06b89b62165c33de55265166d8781", null, null, null, "694bcf2ffd29369dab1c3d0e3f1776ae");

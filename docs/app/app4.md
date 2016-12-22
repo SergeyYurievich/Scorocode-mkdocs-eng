@@ -313,14 +313,14 @@ Returned value – `Object`:
 
 ### DataManager.RunScript(data Object)
 
-Метод для запуска серверного скрипта. Параметры:
+A method that runs a server-side script. Parameters:
 
 `data Object` - object containing the following attributes:
 
 ```
 {
-    script   : "", // ID скрипта, обязательный
-    pool     : {}, // пул данных для установки передачи в контекст скрипта, необязательный
+    script   : "", // script identifier, mandatory
+    pool     : {}, // object with the data that will be passed to the server-side script, optional
 }
 ```
 
@@ -344,15 +344,15 @@ Returned value – `Object`:
 }
 ```
 
-## Примеры триггеров
+## Trigger examples
 
 ### Установка обязательности наличия значения поля.
 
 Перед добавлением документа проверим наличие значения поля "name" и, в случае его отсутствия, прервем операцию добавления документа.
 
 ```js
-if (!pool.doc.hasOwnProperty('name')) {   // проверим наличие поля "name" в создаваемом документе
-        return false;                     // прервем создание документа в случае отсутствия поля
+if (!pool.doc.hasOwnProperty('name')) {   
+        return false;                     
     } else {
         return true;                      // В случае, если значение поля присутствует - продолжим операцию
     };
